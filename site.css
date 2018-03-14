@@ -1,0 +1,39 @@
+body {
+    font-family: "pragmatica",sans-serif;
+    font-weight: 400;
+}
+ul.layerlist {
+    font-size: 0.8em;
+}
+#map {
+    height: 800px;
+    padding: 0;
+}
+#head h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+#head h4 {
+    padding: 0;
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: 200;
+    font-style: italic;
+}
+#head {
+    padding: 1em;
+}
+#map-container {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+}
+#foot {
+    font-size: .8em;
+    margin-top: 1em;
+}
+
+.layer-switcher {
+    font-size: 0.8em;
+    top: 0.5em;
+}
