@@ -1,0 +1,104 @@
+# -------------------------------
+# MapProxy example configuration.
+# -------------------------------
+#
+# This is a minimal MapProxy configuration.
+# See full_example.yaml and the documentation for more options.
+#
+
+# Starts the following services:
+# Demo:
+#     http://localhost:8080/demo
+# WMS:
+#     capabilities: http://localhost:8080/service?REQUEST=GetCapabilities
+# WMTS:
+#     capabilities: http://localhost:8080/wmts/1.0.0/WMTSCapabilities.xml
+#     first tile: http://localhost:8080/wmts/osm/webmercator/0/0/0.png
+# Tile service (compatible with OSM/etc.)
+#     first tile: http://localhost:8080/tiles/osm/webmercator/0/0/0.png
+# TMS:
+#     note: TMS is not compatible with OSM/Google Maps/etc.
+#     fist tile: http://localhost:8080/tms/1.0.0/osm/webmercator/0/0/0.png
+# KML:
+#     initial doc: http://localhost:8080/kml/osm/webmercator
+
+services:
+  demo:
+#  tms:
+#    use_grid_names: true
+#    # origin for /tiles service
+#    origin: 'nw'
+  kml:
+      use_grid_names: true
+  wmts:
+  wms:
+    md:
+      title: Hafjall ehf. MapProxy
+      abstract: WMS/WMTS cache owned and operated by Hafjall ehf.
+
+layers:
+  - name: treasure
+    title: Treasure Island, Feb 28 2018
+    sources: [treasure_cache]
+  - name: treasure_20171211
+    title: Treasure Island, Dec 11 2017
+    sources: [treasure_20171211_cache]
+  - name: LMI_Kort
+    title: Base map, Landmaelingar Islands
+    sources: [lmi_cache]
+
+caches:
+  treasure_cache:
+    grids: [webmercator_IS]
+    sources: [treasure_20180228_wms]
+  treasure_20171211_cache:
+    grids: [webmercator_IS]
+    sources: [treasure_20171211_wms]
+  lmi_cache:
+    grids: [webmercator_LMI]
+    sources: [lmi_wms]
+
+sources:
+  treasure_20180228_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180228
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20171211_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20171211
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  lmi_wms:
+    type: wms
+    req:
+      url: https://gis.lmi.is/geoserver/ows?SERVICE=WMS&
+      layers: LMI_Kort
+    wms_opts:
+      version: 1.3.0
+    http:
+      ssl_no_cert_checks: true
+
+grids:
+    webmercator:
+        base: GLOBAL_WEBMERCATOR
+    webmercator_IS:
+        base: GLOBAL_WEBMERCATOR
+        bbox: [-1808319.163, 9377229.672, -1806834.430, 9378499.433]
+    webmercator_LMI:
+        base: GLOBAL_WEBMERCATOR
+        bbox: [208074.81240539486, 298461.7028617209, 795269.7309350342, 688919.6274458012]
+        bbox_srs: EPSG:3057
+
+
+globals:
