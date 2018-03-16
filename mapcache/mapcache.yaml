@@ -40,6 +40,9 @@ layers:
   - name: treasure
     title: Treasure Island, Feb 28 2018
     sources: [treasure_cache]
+  - name: treasure_20180228_dsm
+    title: Treasure Island, Feb 28 2018 (dsm)
+    sources: [treasure_20180228_dsm_cache]
   - name: treasure_20171211
     title: Treasure Island, Dec 11 2017
     sources: [treasure_20171211_cache]
@@ -51,6 +54,9 @@ caches:
   treasure_cache:
     grids: [webmercator_IS]
     sources: [treasure_20180228_wms]
+  treasure_20180228_dsm_cache:
+    grids: [webmercator_IS]
+    sources: [treasure_20180228_dsm_wms]
   treasure_20171211_cache:
     grids: [webmercator_IS]
     sources: [treasure_20171211_wms]
@@ -64,6 +70,16 @@ sources:
     req:
       map: /var/www/is.icecaves.map/mapfiles/treasure.map
       layers: treasure_20180228
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180228_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180228_dsm
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
