@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-527994-13', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
     <meta charset="UTF-8">
     <title>Ice Cave Situation Maps - Háfjall ehf.</title>
     <link rel="stylesheet" href="https://use.typekit.net/twd0ihj.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" href="/ol/v4.6.4/ol.css" type="text/css">
     <link rel="stylesheet" href="/css/ol-layerswitcher.css" type="text/css">
     <link rel="stylesheet" href="/site.css" type="text/css">
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="   crossorigin="anonymous"></script>
+    <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="   crossorigin="anonymous"></script> -->
+    <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script> 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="/ol/v4.6.4/ol.js"></script>
     <script src="/js/ol-layerswitcher.js"></script>
     <script src="/js/progress.js"></script>
@@ -26,10 +41,19 @@
     </style>
   </head>
   <body>
-    <div id="head">
-      <h1>Ice Cave Situation Maps</h1>
+      <div id="welcome" class="modal">
+	  <h3>Hello, Friend!</h3>
+	  <p><b>Cookies and Tracking</b> – I use Google Analytics and Cookies, because I'd like to know if people find this interesting and how they use it. Of course all collected information is anonymous and not being shared with anybody else, ever.</p>
+	  <p><b>Copyright</b> - The base map of Iceland is copyrighted work of the National Land Survey of Iceland. All other overlay maps are my own work.<br />Send mail to <a href="mailto:hello@icecaves.is">hello@icecaves.is</a> if you're interested in using, reproducing, or other access to the data. Or if you just found this useful and want to say hello. I like to get mail like that.</p>
+	  <p><b>Safety</b> - Ice caves are <em>massively</em> popular, but occur where the glacier is changing most rapidly. Do not use these maps as a guide for going on your own. No guarantees are given to their accuracy or actuality.</p>
+
+	  <p>Enjoy!<br/>
+	      <em> - Stephan</em></p>
+	  <small>Thank you for reading. Click anywhere outside this box to close</small>
+      </div>
+      <div id="head">
+	  <h1>Ice Cave Situation Maps</h1>
       <h4>An experiment in near-time glacier information</h4>
-      <span style="font-weight: 200;">Most recent data shown by default.<br />
       <small>Note: 2017 data is not accurately aligned.</small></span>
       <!--
       <ul class="layerlist">
@@ -64,6 +88,10 @@
 	     layer: 'treasure',
 	     matrixSet: 'EPSG:3857'
 	 });
+	 var options20180228dsm = ol.source.WMTS.optionsFromCapabilities(result, {
+	     layer: 'treasure_20180228_dsm',
+	     matrixSet: 'EPSG:3857'
+	 });
 	 var options201712 = ol.source.WMTS.optionsFromCapabilities(result, {
 	     layer: 'treasure_20171211',
 	     matrixSet: 'EPSG:3857'
@@ -78,6 +106,8 @@
 	 
 	 var treasure201712Source = new ol.source.WMTS(/** @type {!olx.source.WMTSOptions} */ (options201712));
 	 
+	 var treasure20180228dsmSource = new ol.source.WMTS(/** @type {!olx.source.WMTSOptions} */ (options20180228dsm));
+	 
 	 var treasureSource = new ol.source.WMTS(/** @type {!olx.source.WMTSOptions} */ (options));
 	 treasureSource.setAttributions('ice cave situation maps © <a href="http://www.hafjall.is/">Háfjall ehf.</a>')
 	 
@@ -90,9 +120,13 @@
 	 treasure201712Source.on('tileloadstart', function() { progress.addLoading(); });
 	 treasure201712Source.on('tileloadend', function() { progress.addLoaded(); });
 	 treasure201712Source.on('tileloaderror', function() { progress.addLoaded(); });
+	 treasure20180228dsmSource.on('tileloadstart', function() { progress.addLoading(); });
+	 treasure20180228dsmSource.on('tileloadend', function() { progress.addLoaded(); });
+	 treasure20180228dsmSource.on('tileloaderror', function() { progress.addLoaded(); });
 	 
-	 var treasure_20171211 = new ol.layer.Tile({ opacity: 1, source: treasure201712Source, title:"Treasure Island 2017-12-11", visible:false })
-	 var treasure_20180228 = new ol.layer.Tile({ opacity: 1, source: treasureSource, title:"Treasure Island 2018-02-28" })
+	 var treasure_20171211 = new ol.layer.Tile({ opacity: 1, source: treasure201712Source, title:"Orthophoto", visible:false })
+	 var treasure_20180228 = new ol.layer.Tile({ opacity: 1, source: treasureSource, title:"Orthophoto" })
+	 var treasure_20180228dsm = new ol.layer.Tile({ opacity: 0.7, source: treasure20180228dsmSource, title:"Terrain ('hillshade')", visible:false })
 	 
 	 var style = new ol.style.Style({
 	     fill: new ol.style.Fill({
@@ -122,12 +156,36 @@
 	     style: style,
 	     title: "Ice Cave Extents"
 	 });
+
+	 var gae = function(e) { 
+	     ga('send', {
+		 hitType: 'event',
+		 eventCategory:'Layers',
+		 eventAction:this.getVisible() ? 'show':'hide',
+		 eventLabel:this.get('title')
+	     })
+	 }
+	 
+	 treasure_20171211.on('change:visible', gae, treasure_20171211);
+	 treasure_20180228.on('change:visible', gae, treasure_20180228);
+	 treasure_20180228dsm.on('change:visible', gae, treasure_20180228dsm);
 	 
 	 map = new ol.Map({
 	     layers: [
 		 new ol.layer.Tile({ source: lmiSource, type: 'base', title:'LMI Map' }),
-		 treasure_20180228,
-		 treasure_20171211,
+		 new ol.layer.Group({
+		     title: "Treasure Island, 2018-02-28",
+		     layers: [
+			 treasure_20180228,
+			 treasure_20180228dsm,
+		     ]
+		 }),
+		 new ol.layer.Group({
+		     title: "Treasure Island, 2017-12-11",
+		     layers: [
+			 treasure_20171211,
+		     ]
+		 }),
 		 vectorLayer
 	     ],
 	     target: 'map',
@@ -160,6 +218,20 @@
 	     tipLabel: 'Layers' // Optional label for button
 	 });
 	 map.addControl(layerSwitcher);
+
+	 function cookiesEnabled() {
+	     var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
+	     Cookies.remove('check');
+	     return r;
+	 }
+
+	 if(cookiesEnabled()) {
+	     var tag = "seen_2018004";
+	     if(Cookies.get('welcome') != tag) {
+		 Cookies.set("welcome", tag, {expires: 30});
+		 $("#welcome").modal({fadeDuration: 100});
+	     }
+	 }
      });
      
     </script>
