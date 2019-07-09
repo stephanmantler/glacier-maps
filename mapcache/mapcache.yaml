@@ -37,12 +37,79 @@ services:
       abstract: WMS/WMTS cache owned and operated by Hafjall ehf.
 
 layers:
-  - name: treasure
+  - name: anakonda
+    title: Anakonda, March 17 2018
+    sources: [anakonda_20180317_cache]
+  - name: anakonda_dsm
+    title: Anakonda, March 17 2018 (dsm)
+    sources: [anakonda_20180317_dsm_cache]
+
+  - name: flaajokull_20181114
+    title: Fláajökull, Nov 14 2018
+    sources: [flaa_20181114_cache]
+
+  - name: treasure_20180401
+    title: Treasure Island, Apr 1 28 2018
+    sources: [treasure_20180401_cache]
+
+  - name: treasure_20180228
     title: Treasure Island, Feb 28 2018
-    sources: [treasure_cache]
+    sources: [treasure_20180228_cache]
   - name: treasure_20180228_dsm
     title: Treasure Island, Feb 28 2018 (dsm)
     sources: [treasure_20180228_dsm_cache]
+
+  - name: treasure_20180604
+    title: Treasure Island, Jun 4 2018
+    sources: [treasure_20180604_cache]
+
+  - name: treasure_20180713
+    title: Treasure Island, Jul 13 2018
+    sources: [treasure_20180713_cache]
+
+  - name: treasure_20180802
+    title: Treasure Island, Aug 2 2018
+    sources: [treasure_20180802_cache]
+
+  - name: treasure_20181101
+    title: Treasure Island, Nov 1 2018
+    sources: [treasure_20181101_cache]
+
+  - name: treasure_20181122
+    title: Treasure Island, Nov 22 2018
+    sources: [treasure_20181122_cache]
+
+  - name: treasure_20181221
+    title: Treasure Island, Dec 20 2018 (partial)
+    sources: [treasure_20181221_cache]
+
+  - name: treasure_20190124
+    title: Treasure Island, Jan 24 2019
+    sources: [treasure_20190124_cache]
+
+  - name: treasure_20190224
+    title: Treasure Island, Feb 24 2019
+    sources: [treasure_20190224_cache]
+
+  - name: treasure_20190321
+    title: Treasure Island, Mar 21 2019
+    sources: [treasure_20190321_cache]
+
+  - name: treasure_20190601
+    title: Treasure Island, Jun 1 2019
+    sources: [treasure_20190601_cache]
+
+  - name: treasure_20190601_relief
+    title: Treasure Island, Jun 1 2019 (relief)
+    sources: [treasure_20190601_relief_cache]
+
+  - name: heinaberg_20180531
+    title: Heinabergslon, May 31
+    sources: [heinaberg_20180531_cache]
+  - name: heinaberg_20180719
+    title: Heinabergslon, July 19
+    sources: [heinaberg_20180719_cache]
+
   - name: treasure_20171211
     title: Treasure Island, Dec 11 2017
     sources: [treasure_20171211_cache]
@@ -51,20 +118,259 @@ layers:
     sources: [lmi_cache]
 
 caches:
-  treasure_cache:
-    grids: [webmercator_IS]
+  anakonda_20180317_cache:
+    grids: [webmercator_AN]
+    sources: [anakonda_20180317_wms]
+  anakonda_20180317_dsm_cache:
+    grids: [webmercator_AN]
+    sources: [anakonda_20180317_dsm_wms]
+
+
+  flaa_20181114_cache:
+    grids: [webmercator_LMI]
+    sources: [flaa_20181114_wms]
+ 
+
+  treasure_20180401_cache:
+    grids: [webmercator_TI]
+    sources: [treasure_20180401_wms]
+
+  treasure_20180713_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180713_wms]
+
+  treasure_20180802_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180802_wms]
+
+  treasure_20181101_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20181101_wms]
+
+  treasure_20181122_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20181122_wms]
+
+  treasure_20181221_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20181221_wms]
+
+  treasure_20190124_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20190124_wms]
+
+  treasure_20190224_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20190224_wms]
+
+  treasure_20190321_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20190321_wms]
+
+  treasure_20190601_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20190601_wms]
+
+  treasure_20190601_relief_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20190601_relief_wms]
+
+  treasure_20180604_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180604_wms]
+
+  heinaberg_20180531_cache:
+    grids: [webmercator_LMI]
+    sources: [heinaberg_20180531_wms]
+  heinaberg_20180719_cache:
+    grids: [webmercator_LMI]
+    sources: [heinaberg_20180719_wms]
+
+  treasure_20180228_cache:
+    grids: [webmercator_TI]
     sources: [treasure_20180228_wms]
   treasure_20180228_dsm_cache:
-    grids: [webmercator_IS]
+    grids: [webmercator_TI]
     sources: [treasure_20180228_dsm_wms]
   treasure_20171211_cache:
-    grids: [webmercator_IS]
+    grids: [webmercator_TI]
     sources: [treasure_20171211_wms]
+
   lmi_cache:
     grids: [webmercator_LMI]
     sources: [lmi_wms]
 
 sources:
+  anakonda_20180317_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: anakonda_20180317
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  anakonda_20180317_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: anakonda_20180317_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  flaa_20181114_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/flaa.map
+      layers: flaajokull_20181114
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180401_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180401
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  heinaberg_20180531_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: heinaberg_20180531
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  heinaberg_20180719_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: heinaberg_20180719
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180802_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180802
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20181101_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20181101
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20181122_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20181122
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20181221_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20181221
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20190124_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20190124
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20190224_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20190224
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20190321_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20190321
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20190601_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20190601
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20190601_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20190601_relief
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180713_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180713
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180604_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180604
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
   treasure_20180228_wms:
     type: mapserver
     req:
@@ -108,9 +414,12 @@ sources:
 grids:
     webmercator:
         base: GLOBAL_WEBMERCATOR
-    webmercator_IS:
+    webmercator_AN:
         base: GLOBAL_WEBMERCATOR
-        bbox: [-1808319.163, 9377229.672, -1806834.430, 9378499.433]
+        bbox: [-1814636.9, 9372199.8, -1813440.3, 9373544.1]
+    webmercator_TI:
+        base: GLOBAL_WEBMERCATOR
+        bbox: [-1809000.000, 9376000.000, -1806000.000, 9379000.000]
     webmercator_LMI:
         base: GLOBAL_WEBMERCATOR
         bbox: [208074.81240539486, 298461.7028617209, 795269.7309350342, 688919.6274458012]

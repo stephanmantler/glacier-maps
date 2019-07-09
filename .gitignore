@@ -1,2 +1,8 @@
 *~
 *#
+map/
+mapdata/
+*.zip
+simple.html
+index2.html
+index-swipe.html

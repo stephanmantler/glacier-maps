@@ -131,7 +131,7 @@
 	    LayerSwitcher.enableTouchScroll_(_this.panel);
 	    
 	    var this_ = _this;
-	    
+/*	    
 	    button.onmouseover = function (e) {
 		this_.showPanel();
 	    };
@@ -147,8 +147,8 @@
 		if (!this_.panel.contains(e.toElement || e.relatedTarget)) {
 		    this_.hidePanel();
 		}
-	    };
-	    
+	    };	 
+*/   
 	    return _this;
 	}
 	
@@ -171,7 +171,7 @@
 		if (map) {
 		    var this_ = this;
 		    this.mapListeners.push(map.on('pointerdown', function () {
-			this_.hidePanel();
+//			this_.hidePanel();
 		    }));
 		    this.renderPanel();
 		}
