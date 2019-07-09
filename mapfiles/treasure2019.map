@@ -4,6 +4,7 @@ MAP
 	SIZE 1000 1000
 	EXTENT 439300 7109000 440100 7110200
 
+
 	IMAGETYPE png
 	UNITS DD
 
@@ -92,4 +93,30 @@ MAP
 
 	END #LAYER
 #####
+  LAYER
+    NAME 'treasure_20190707'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1808475.116 9377214.582 -1806371.534 9378981.897
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190707/tileIndex.shp
+    TILEITEM "LOCATION"
+    PROCESSING "RESAMPLE=AVERAGE"
+    PROJECTION
+      "init=epsg:3857"
+    END
+  END
+  
+  LAYER
+    NAME 'treasure_20190707_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1808475.116 9377214.482 -1806371.643 9378981.897
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190707_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END
+			
 END #MAP

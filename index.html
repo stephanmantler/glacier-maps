@@ -118,6 +118,8 @@
      var treasure20190321Source = makeSource("treasure_20190321");
      var treasure20190601Source = makeSource("treasure_20190601");
      var treasure20190601RSource = makeSource("treasure_20190601_relief");
+     var treasure20190707Source = makeSource("treasure_20190707");
+     var treasure20190707RSource = makeSource("treasure_20190707_relief");
      var heinaberg20180531Source = makeSource("heinaberg_20180531");
      var heinaberg20180719Source = makeSource("heinaberg_20180719");
      var treasureSource = makeSource("treasure_20180401");
@@ -181,6 +183,14 @@
          "treasure_20190601_relief": new ol.layer.Tile({ opacity: 1, source: treasure20190601RSource,
              type: 'base',
              title:"Relief, 2019-06-01", visible:false,
+             extent: [-1809895, 9376929, -1806450, 9378960 ] }),
+         "treasure_20190707": new ol.layer.Tile({ opacity: 1, source: treasure20190707Source,
+             type: 'base',
+             title:"Ortho, 2019-07-07", visible:false,
+             extent: [-1809895, 9376929, -1806450, 9378960 ] }),
+         "treasure_20190707_relief": new ol.layer.Tile({ opacity: 1, source: treasure20190707RSource,
+             type: 'base',
+             title:"Relief, 2019-07-07", visible:false,
              extent: [-1809895, 9376929, -1806450, 9378960 ] }),
      };
 
@@ -299,6 +309,8 @@
              layers["treasure_20190321"],
              layers["treasure_20190601"],
              layers["treasure_20190601_relief"],
+             layers["treasure_20190707"],
+             layers["treasure_20190707_relief"],
              ]
          }),
          /*
@@ -357,7 +369,7 @@
          }
      }
 
-     var defaultLocation = "treasure_20190601";
+     var defaultLocation = "treasure_20190707";
      if(window.location.hash != "") {
          var loc = window.location.hash.substr(1)
          console.log("anchor: " + loc);
