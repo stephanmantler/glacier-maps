@@ -68,7 +68,7 @@
       <div id="progress"></div>
     </div>
     <div id="foot">
-      Informational purposes only, no guarantees towards local or global accuracy. © 2017-18 <a href="http://www.instagram.com/stepman/">Stephan Mantler</a> / <a href="http://www.hafjall.is/">Háfjall ehf</a>. Contact us at <a href="mailto:info@hafjall.is">info@hafjall.is</a>.
+      Informational purposes only, no guarantees towards local or global accuracy. © 2017-19 <a href="http://www.instagram.com/stepman/">Stephan Mantler</a> / <a href="http://www.hafjall.is/">Háfjall ehf</a>. Contact us at <a href="mailto:info@hafjall.is">info@hafjall.is</a>. Map UI powered by <a href="https://openlayers.org/">OpenLayers</a>.
     </div>
     <script>
 
@@ -120,6 +120,8 @@
      var treasure20190601RSource = makeSource("treasure_20190601_relief");
      var treasure20190707Source = makeSource("treasure_20190707");
      var treasure20190707RSource = makeSource("treasure_20190707_relief");
+     var treasure20190906Source = makeSource("treasure_20190906");
+     var treasure20190906RSource = makeSource("treasure_20190906_relief");
      var heinaberg20180531Source = makeSource("heinaberg_20180531");
      var heinaberg20180719Source = makeSource("heinaberg_20180719");
      var treasureSource = makeSource("treasure_20180401");
@@ -191,6 +193,14 @@
          "treasure_20190707_relief": new ol.layer.Tile({ opacity: 1, source: treasure20190707RSource,
              type: 'base',
              title:"Relief, 2019-07-07", visible:false,
+             extent: [-1809895, 9376929, -1806450, 9378960 ] }),
+         "treasure_20190906": new ol.layer.Tile({ opacity: 1, source: treasure20190906Source,
+             type: 'base',
+             title:"Ortho, 2019-09-06", visible:false,
+             extent: [-1809895, 9376929, -1806450, 9378960 ] }),
+         "treasure_20190906_relief": new ol.layer.Tile({ opacity: 1, source: treasure20190906RSource,
+             type: 'base',
+             title:"Relief, 2019-09-06", visible:false,
              extent: [-1809895, 9376929, -1806450, 9378960 ] }),
      };
 
@@ -279,7 +289,8 @@
              layers["heinaberg_20180531"],
              ]
          }),
-         */
+     */
+     /*
          new ol.layer.Group({
              title: "Heinabergslón",
              layers: [
@@ -291,7 +302,8 @@
              layers: [
              layers["flaajokull_20181114"],
              ]
-         }),
+     }),
+     */
          new ol.layer.Group({
              title: "Treasure Island",
              layers: [
@@ -311,6 +323,8 @@
              layers["treasure_20190601_relief"],
              layers["treasure_20190707"],
              layers["treasure_20190707_relief"],
+             layers["treasure_20190906"],
+             layers["treasure_20190906_relief"],
              ]
          }),
          /*
@@ -369,7 +383,7 @@
          }
      }
 
-     var defaultLocation = "treasure_20190707";
+     var defaultLocation = "treasure_20190906";
      if(window.location.hash != "") {
          var loc = window.location.hash.substr(1)
          console.log("anchor: " + loc);
