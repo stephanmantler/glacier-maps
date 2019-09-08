@@ -20,11 +20,9 @@ function Progress(el) {
 Progress.prototype.addLoading = function() {
     if (this.loading === 0) {
 	this.show();
-	console.log("showing progress...");
     }
     ++this.loading;
       this.update();
-    console.log("now loading ",this.loading);
 };
 
 /**
@@ -50,7 +48,6 @@ Progress.prototype.update = function() {
 	var this_ = this;
 	setTimeout(function() {
 	    this_.hide();
-	    console.log("progress: all done.");
 	}, 500);
       }
 };

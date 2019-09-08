@@ -1,9 +1,19 @@
 body {
     font-family: "pragmatica",sans-serif;
-    font-weight: 400;
+    font-weight: 200;
+}
+a {
+    text-decoration: none;
 }
 ul.layerlist {
     font-size: 0.8em;
+    vertical-align: middle;
+}
+.layer-switcher li.group > label {
+    font-weight: 400;
+}
+.layer-switcher li.layer label, .layer-switcher li.layer input {
+    vertical-align: middle;
 }
 #map {
     height: 800px;
@@ -17,12 +27,16 @@ ul.layerlist {
 #head h4 {
     padding: 0;
     margin-top: 0;
+    margin-bottom: 0;
     font-size: 1em;
     font-weight: 200;
     font-style: italic;
 }
 #head {
-    padding: 1em;
+    padding-top: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.2em;
 }
 #map-container {
     border: 1px solid #c0c0c0;
