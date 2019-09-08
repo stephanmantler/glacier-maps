@@ -1,0 +1,25 @@
+{
+  "name": "map.icecaves.is",
+  "version": "1.0.0",
+  "description": "opportunistic mapping frontend",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode production",
+    "start": "webpack-dev-server --hot"
+  },
+  "devDependencies": {
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.3.8",
+    "webpack-command": "^0.3.0",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "step@stepman.is:~/git/map.icecaves.is.git"
+  },
+  "author": "stephan mantler",
+  "license": "MIT",
+  "dependencies": {
+    "ol": "^5.3.3"
+  }
+}
