@@ -14,6 +14,8 @@ import Stroke from 'ol/style/Stroke';
 import Text from 'ol/style/Text';
 import Fill from 'ol/style/Fill';
 
+import LayerSwitcher from 'ol-layerswitcher';
+
 //FIXME     var progress = new Progress(document.getElementById('progress'));
 
 
@@ -305,13 +307,10 @@ import Fill from 'ol/style/Fill';
      window.addEventListener('resize', checkSize);
      checkSize();
 
-/* FIXME
-     var layerSwitcher = new ol.control.LayerSwitcher({
-         tipLabel: 'Layers' // Optional label for button
-					});
-					map.addControl(layerSwitcher);
-					layerSwitcher.showPanel();
-*/
+     var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers' });
+  		map.addControl(layerSwitcher);
+			layerSwitcher.showPanel();
+
      function cookiesEnabled() {
          var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
          Cookies.remove('check');
