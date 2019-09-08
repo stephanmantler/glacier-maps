@@ -20,6 +20,7 @@
   "author": "stephan mantler",
   "license": "MIT",
   "dependencies": {
-    "ol": "^5.3.3"
+    "ol": "^5.3.3",
+    "ol-layerswitcher": "^3.3.0"
   }
 }
