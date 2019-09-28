@@ -1,6 +1,21 @@
 {
-  "Treasure Island" : [
-    {    
+  "Treasure Island - Relief Maps" : [
+    {
+      "layername": "treasure_20190601_relief",
+      "title": "Relief, 2019-06-01",
+      "extent": [-1809895, 9376929, -1806450, 9378960 ]
+    }, {
+      "layername": "treasure_20190707_relief",
+      "title": "Relief, 2019-07-07",
+      "extent": [-1809895, 9376929, -1806450, 9378960 ]
+    }, {
+      "layername": "treasure_20190906_relief",
+      "title":"Relief, 2019-09-06",
+      "extent": [-1809895, 9376929, -1806450, 9378960 ]
+    }
+  ],
+  "Treasure Island - Orthophotos" : [
+    {
       "layername": "treasure_20180713",
       "title": "Ortho, 2018-07-13",
       "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
@@ -41,20 +56,8 @@
       "title": "Ortho, 2019-07-07",
       "extent": [-1809895, 9376929, -1806450, 9378960 ]
     }, {
-      "layername": "treasure_20190906", 
+      "layername": "treasure_20190906",
       "title": "Ortho, 2019-09-06",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190601_relief",
-      "title": "Relief, 2019-06-01",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, { 
-      "layername": "treasure_20190707_relief",
-      "title": "Relief, 2019-07-07",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190906_relief",
-      "title":"Relief, 2019-09-06",
       "extent": [-1809895, 9376929, -1806450, 9378960 ]
     }
   ]
