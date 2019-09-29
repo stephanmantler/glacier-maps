@@ -50,18 +50,22 @@ import('ol').then(_ => {
 */
     return source;
   }
+  
+  var activeLayer;
 
   var layerGroups = []
   for(var og in overlays) {
     var group = new Group({title: og, layers:[]})
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
-      var source = makeSource(ogl["layername"])
-      source.setAttributions('ice cave situation maps © <a href="http://www.hafjall.is/">Háfjall ehf.</a>')
-      var layer = new Tile({ opacity: 1, source: source, type: 'base', title: ogl["title"], visible:false, extent: ogl["extent"]})
-      group.getLayers().push(layer)
+      var source = makeSource(ogl["layername"]);
+      source.setAttributions('ice cave situation maps © <a href="http://www.hafjall.is/">Háfjall ehf.</a>');
+      var layer = new Tile({ opacity: 1, source: source, type: 'base', title: ogl["title"], visible:false, extent: ogl["extent"]});
+      // lazy way to remember the very last layer we've added
+      activeLayer = layer;
+      group.getLayers().push(layer);
     }
-    layerGroups.push(group)
+    layerGroups.push(group);
   }
 
   var lmiSource = makeSource("LMI_Kort");
@@ -124,6 +128,7 @@ import('ol').then(_ => {
     fixContentHeight();
   }
   function fixContentHeight(){
+    /*
     var viewHeight = $(window).height();
     var header = $("div#head");
     var footer = $("div#foot");
@@ -131,6 +136,7 @@ import('ol').then(_ => {
     var contentHeight = viewHeight - header.outerHeight() - footer.outerHeight() - 40;
     content.height(contentHeight);
     map.updateSize();
+    */
   }
   window.addEventListener('resize', checkSize);
   checkSize();
@@ -152,8 +158,9 @@ import('ol').then(_ => {
       $("#welcome").modal({fadeDuration: 100});
     }
   }
+
 /*
-  var defaultLocation = "treasure_20190906";
+  var defaultLocation = activeLayer["layername"];
   if(window.location.hash != "") {
     var loc = window.location.hash.substr(1)
     console.log("anchor: " + loc);
@@ -164,9 +171,11 @@ import('ol').then(_ => {
       console.log("unknown layer :(");
     }
   }
-  layers[defaultLocation].setVisible(true);
-  var extent = layers[defaultLocation].getExtent();
+  */
+  activeLayer.setVisible(true);
+  layerSwitcher.renderPanel();
+  var extent = activeLayer.getExtent();
   console.log("extent: " + extent)
   map.getView().fit(extent);
-  */
+  
 });
