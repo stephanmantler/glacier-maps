@@ -5,6 +5,28 @@ body {
     padding: 0;
     height: 100%;
 }
+div#compare-menu {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+}
+.compare-dropdown {
+  display: inline-block;
+  background: #f0f0ff;
+  width: 15em;
+  text-align: center;
+}
+.compare-dropdown li {
+  display: block;
+  margin: 0;
+}
+.compare-dropdown ul {
+  padding-left: 0;
+  margin-top: 0;
+}
 html { 
   height: 100%;
 }

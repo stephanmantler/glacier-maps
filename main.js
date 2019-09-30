@@ -1,3 +1,6 @@
+import 'ol/ol.css';
+import 'ol-ext/control/Swipe.css';
+
 //import {Map, View} from 'ol';
 import Tile from 'ol/layer/Tile';
 import Vector from 'ol/layer/Vector';
@@ -14,6 +17,8 @@ import Stroke from 'ol/style/Stroke';
 import Text from 'ol/style/Text';
 import Fill from 'ol/style/Fill';
 import LayerSwitcher from 'ol-layerswitcher';
+
+import Swipe from 'ol-ext/control/Swipe';
 //FIXME     var progress = new Progress(document.getElementById('progress'));
 
 var parser = new WMTSCapabilities();
@@ -24,6 +29,10 @@ var attribution = new Attribution({
 
 var overlays = {}
 var ol;
+
+var compareChangeMap = function(map, item) {
+  console.log("compareChangeMap: ",map,item);
+}
 
 import('ol').then(_ => {
   ol = _;
@@ -52,6 +61,8 @@ import('ol').then(_ => {
   }
   
   var activeLayer;
+  var layerListLeft = "";
+  var layerListRight = "";
 
   var layerGroups = []
   for(var og in overlays) {
@@ -64,6 +75,8 @@ import('ol').then(_ => {
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
       group.getLayers().push(layer);
+      layerListLeft = layerListLeft + "<li onmousedown=\"compareChangeMap(0, '"+ogl["layername"]+"')\">"+ogl["title"]+"</li>";
+      layerListRight = layerListRight + "<li onmousedown=\"compareChangeMap(1, '"+ogl["layername"]+"')\">"+ogl["title"]+"</li>";
     }
     layerGroups.push(group);
   }
@@ -127,6 +140,11 @@ import('ol').then(_ => {
     attribution.setCollapsed(small);
     fixContentHeight();
   }
+  
+  
+  $("#compare-left-content").html("<ul>" + layerListLeft + "</ul>");
+  $("#compare-right-content").html("<ul>" + layerListRight + "</ul>");
+  
   function fixContentHeight(){
     /*
     var viewHeight = $(window).height();
@@ -141,10 +159,11 @@ import('ol').then(_ => {
   window.addEventListener('resize', checkSize);
   checkSize();
 
-  var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers' });
+/*
+    var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers' });
   map.addControl(layerSwitcher);
   layerSwitcher.showPanel();
-
+*/
   function cookiesEnabled() {
     var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
     Cookies.remove('check');
@@ -158,6 +177,13 @@ import('ol').then(_ => {
       $("#welcome").modal({fadeDuration: 100});
     }
   }
+  
+  let ctrl = new Swipe();
+  ctrl.addLayer(activeLayer);
+  let other = layerGroups[1].getLayersArray()[2];
+  other.setVisible(true);
+  ctrl.addLayer(other, true);
+  map.addControl(ctrl);
 
 /*
   var defaultLocation = activeLayer["layername"];
@@ -172,8 +198,11 @@ import('ol').then(_ => {
     }
   }
   */
+  
   activeLayer.setVisible(true);
+  /*
   layerSwitcher.renderPanel();
+  */
   var extent = activeLayer.getExtent();
   console.log("extent: " + extent)
   map.getView().fit(extent);
