@@ -12,20 +12,34 @@ var Comparator = function(map, overlays) {
   
   map.addControl(this.ctrl);
 
-  var leftContainer = '<div id="compare-left-dropdown" class="compare-dropdown" onmouseover="$(\'#compare-left-content\').show()" onmouseout="$(\'#compare-left-content\').hide()"><div class="button">1995</div><div id="compare-left-content" class="compare-content" style="display:block;"><ul id="compare-left-ul">' + layerListLeft + '</ul></div></div>';
-  var rightContainer = '<div id="compare-right-dropdown" class="compare-dropdown" onmouseover="$(\'#compare-right-content\').show()" onmouseout="$(\'#compare-right-content\').hide()"><div class="button">1996</div><div id="compare-right-content" class="compare-content" style="display:block;"><ul id="compare-right-ul">' + layerListRight + '</ul></div></div>';
+  var leftContainer = '<div id="compare-left-dropdown" class="compare compare-dropdown" onmouseover="$(\'#compare-left-content\').show()" onmouseout="$(\'#compare-left-content\').hide()"><div class="button">1995</div><div id="compare-left-content" class="compare compare-content" style="display:block;"><ul id="compare-left-ul">' + layerListLeft + '</ul></div></div>';
+  var rightContainer = '<div id="compare-right-dropdown" class="compare compare-dropdown" onmouseover="$(\'#compare-right-content\').show()" onmouseout="$(\'#compare-right-content\').hide()"><div class="button">1996</div><div id="compare-right-content" class="compare compare-content" style="display:block;"><ul id="compare-right-ul">' + layerListRight + '</ul></div></div>';
 
   $('.ol-swipe').prepend(leftContainer+rightContainer);
   for(var og in overlays) {
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
       
-      $("<li>"+ogl["title"]+"</li>").appendTo("#compare-left-ul").mousedown([that, 0, og, k, ogl["title"]], that.compareChangeMap);
-      $("<li>"+ogl["title"]+"</li>").appendTo("#compare-right-ul").mousedown([that, 1, og, k, ogl["title"]], that.compareChangeMap);
+      $("<li class='compare'>"+ogl["title"]+"</li>").appendTo("#compare-left-ul").mousedown([that, 0, og, k, ogl["title"]], that.compareChangeMap);
+      $("<li class='compare'>"+ogl["title"]+"</li>").appendTo("#compare-right-ul").mousedown([that, 1, og, k, ogl["title"]], that.compareChangeMap);
     }
   }
 }
 
+// override Swipe move() function to avoid spurious changes while clicking the selector
+var oldMove = Swipe.prototype.move
+var newMove = function(e)
+{
+  if( $(e.target).hasClass('compare') )
+    return;
+  Swipe.prototype.move = oldMove
+  this.move(e)
+  Swipe.prototype.move = newMove
+}
+
+Swipe.prototype.move = newMove
+
+// helper function to wrap layer toggle functionality around the Swipe control
 Comparator.prototype.setLayer = function(layer, side) {
   
   if (side) {
@@ -33,13 +47,15 @@ Comparator.prototype.setLayer = function(layer, side) {
       this.ctrl.removeLayer(this.leftLayer)
       this.leftLayer.setVisible(false)
     }
-    this.letLayer = layer
+    this.leftLayer = layer
+    $("#compare-left-dropdown .button").html(layer.get('title'))
   } else {
     if (this.rightLayer) {
       this.ctrl.removeLayer(this.rightLayer)    
       this.rightLayer.setVisible(false)
     }
     this.rightLayer = layer
+    $("#compare-right-dropdown .button").html(layer.get('title'))
   }
   this.ctrl.addLayer(layer, side)
   layer.setVisible(true)
