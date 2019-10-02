@@ -75,8 +75,6 @@ import('ol').then(_ => {
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
       group.getLayers().push(layer);
-      layerListLeft = layerListLeft + "<li onmousedown=\"compareChangeMap(0, '"+ogl["layername"]+"')\">"+ogl["title"]+"</li>";
-      layerListRight = layerListRight + "<li onmousedown=\"compareChangeMap(1, '"+ogl["layername"]+"')\">"+ogl["title"]+"</li>";
     }
     layerGroups.push(group);
   }
@@ -142,9 +140,6 @@ import('ol').then(_ => {
   }
   
   
-  $("#compare-left-content").html("<ul>" + layerListLeft + "</ul>");
-  $("#compare-right-content").html("<ul>" + layerListRight + "</ul>");
-  
   function fixContentHeight(){
     /*
     var viewHeight = $(window).height();
@@ -178,12 +173,15 @@ import('ol').then(_ => {
     }
   }
   
-  let ctrl = new Swipe();
-  ctrl.addLayer(activeLayer);
-  let other = layerGroups[1].getLayersArray()[2];
-  other.setVisible(true);
-  ctrl.addLayer(other, true);
-  map.addControl(ctrl);
+  import('./compare.js').then(function(Compare) { 
+    let other = layerGroups[1].getLayersArray()[3];
+    other.setVisible(true);
+    
+    var comparator = new Compare.default(map, overlays);
+    comparator.setLayer(activeLayer, false);
+    comparator.setLayer(other, true);
+
+  })
 
 /*
   var defaultLocation = activeLayer["layername"];
