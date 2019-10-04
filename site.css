@@ -5,6 +5,15 @@ body {
     padding: 0;
     height: 100%;
 }
+.compare {
+  font-size: 1em;
+}
+/* smartphones, touchscreens */
+@media (hover: none) and (pointer: coarse) {
+  .compare {
+    font-size: 1.3em;
+  }
+}
 div#compare-menu {
   position: absolute;
   top: 5px;

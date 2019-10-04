@@ -82,6 +82,8 @@ Comparator.prototype.compareChangeMap = function(event) {
       that.setLayer(layer, side)
     }
   }
+  $('#compare-left-content').hide()
+  $('#compare-right-content').hide()  
 }
 
 Comparator.prototype.constructor = Comparator
