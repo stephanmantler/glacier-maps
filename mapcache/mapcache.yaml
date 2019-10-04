@@ -24,10 +24,10 @@
 
 services:
   demo:
-#  tms:
-#    use_grid_names: true
-#    # origin for /tiles service
-#    origin: 'nw'
+  tms:
+    use_grid_names: true
+    # origin for /tiles service
+    origin: 'nw'
   kml:
       use_grid_names: true
   wmts:
@@ -152,63 +152,63 @@ caches:
     sources: [treasure_20180401_wms]
 
   treasure_20180713_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20180713_wms]
 
   treasure_20180802_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20180802_wms]
 
   treasure_20181101_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20181101_wms]
 
   treasure_20181122_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20181122_wms]
 
   treasure_20181221_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20181221_wms]
 
   treasure_20190124_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190124_wms]
 
   treasure_20190224_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190224_wms]
 
   treasure_20190321_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190321_wms]
 
   treasure_20190601_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190601_wms]
 
   treasure_20190601_relief_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190601_relief_wms]
 
   treasure_20190707_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190707_wms]
 
   treasure_20190707_relief_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190707_relief_wms]
 
   treasure_20190906_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190906_wms]
 
   treasure_20190906_relief_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20190906_relief_wms]
 
   treasure_20180604_cache:
-    grids: [webmercator_LMI]
+    grids: [webmercator_TI]
     sources: [treasure_20180604_wms]
 
   heinaberg_20180531_cache:
@@ -491,7 +491,8 @@ grids:
         bbox: [-1814636.9, 9372199.8, -1813440.3, 9373544.1]
     webmercator_TI:
         base: GLOBAL_WEBMERCATOR
-        bbox: [-1809000.000, 9376000.000, -1806000.000, 9379000.000]
+#        bbox: [-1850000.000, 9365000.000, -1750000.000, 9385000.000]
+#        origin: nw
     webmercator_LMI:
         base: GLOBAL_WEBMERCATOR
         bbox: [208074.81240539486, 298461.7028617209, 795269.7309350342, 688919.6274458012]
