@@ -17,17 +17,16 @@
     <title>Local Situation Maps - Háfjall ehf.</title>
     <link rel="stylesheet" href="https://use.typekit.net/twd0ihj.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <link rel="stylesheet" href="/ol/v4.6.4/ol.css" type="text/css">
-    <link rel="stylesheet" href="/css/ol-layerswitcher.css" type="text/css">
-    <link rel="stylesheet" href="/site.css" type="text/css">
+    <link rel="stylesheet" href="ol/v4.6.4/ol.css" type="text/css">
+    <link rel="stylesheet" href="css/ol-layerswitcher.css" type="text/css">
     <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="   crossorigin="anonymous"></script> -->
     <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script> 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="./bundle.js"></script>
-    <!--script src="/js/ol-layerswitcher.js"></script -->
-    <script src="/js/progress.js"></script>
+    <script src="js/progress.js"></script>
+    <link rel="stylesheet" href="site.css" type="text/css">
     <style>
       #progress {
       position: absolute;
@@ -41,37 +40,24 @@
     </style>
   </head>
   <body>
-      <div id="welcome" class="modal">
+    <div id="welcome" class="modal">
       <h3>Hello, Friend!</h3>
       <p><b>Cookies and Tracking</b> – I use Google Analytics and Cookies, because I'd like to know if people find this interesting and how they use it. Of course all collected information is anonymous and not being shared with anybody else, ever.</p>
       <p><b>Copyright</b> - The base map of Iceland is copyrighted work of the National Land Survey of Iceland. All other overlay maps are my own work.<br />Send mail to <a href="mailto:hello@icecaves.is">hello@icecaves.is</a> if you're interested in using, reproducing, or other access to the data. Or if you just found this useful and want to say hello. I like to get mail like that.</p>
       <p><b>Safety</b> - Ice caves are <em>massively</em> popular, but occur where the glacier is changing most rapidly. Do not use these maps as a guide for going on your own. No guarantees are given to their accuracy or actuality.</p>
-
+  
       <p>Enjoy!<br/>
           <em> - Stephan</em></p>
       <small>Thank you for reading. Click anywhere outside this box to close</small>
-      </div>
-      <div id="head">
-      <!-- <h1>Near-time Situation Maps</h1>
-      <h4>Frequently updated, highly localized.</h4> -->
-      <!--- <small>Note: 2017 data is not accurately aligned.</small></span> -->
-      <!--
-      <ul class="layerlist">
-    <li>Treasure Island <span style="font-weight:200;"> 2.5cm orthoimages, acquired 2018-02-28</span></li>
-    <li>Treasure Island subset <span style="font-weight:200;"> 5cm orthoimages, acquired 2017-12-11<br/><small>Note: This layer is not accurately aligned</small></span></li>
-    <li> Ice Cave Extents overlay <span style="font-weight:200;"><br/><small>(rough sketch)</small></span></li>
-      </ul>
-      -->
     </div>
     <div id="map-container">
       <div id="map" class="map"></div>
       <div id="progress"></div>
     </div>
+    <!--
     <div id="foot">
       Informational purposes only, no guarantees towards local or global accuracy. © 2017-19 <a href="http://www.instagram.com/stepman/">Stephan Mantler</a> / <a href="http://www.hafjall.is/">Háfjall ehf</a>. Contact us at <a href="mailto:info@hafjall.is">info@hafjall.is</a>. Map UI powered by <a href="https://openlayers.org/">OpenLayers</a>.
     </div>
-    <script>
-
-    </script>
+    -->
   </body>
   </html>
