@@ -167,6 +167,8 @@ import('ol').then(_ => {
   map.addControl(layerSwitcher);
   layerSwitcher.showPanel();
 */
+
+	/*
   function cookiesEnabled() {
     var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
     Cookies.remove('check');
@@ -180,7 +182,7 @@ import('ol').then(_ => {
       $("#welcome").modal({fadeDuration: 100});
     }
   }
-  
+  */
   import('./compare.js').then(function(Compare) { 
     let other = layerGroups[1].getLayersArray()[3];
     other.setVisible(true);
