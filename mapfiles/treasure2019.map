@@ -146,5 +146,19 @@ MAP
       'init=epsg:3857'
     END
   END
-		      
+  
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20191223/ (via regen.py)
+  LAYER
+    NAME 'treasure_20191223'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809934.415 9376960.661 -1806829.673 9378924.479
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20191223/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END
+	      
 END #MAP

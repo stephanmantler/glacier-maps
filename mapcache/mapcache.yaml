@@ -119,6 +119,10 @@ layers:
     title: Treasure Island, Sep 6 2019 (relief)
     sources: [treasure_20190906_relief_cache]
 
+  - name: treasure_20191223
+    title: Treasure Island, Dec 23 2019
+    sources: [treasure_20191223_cache]
+
   - name: heinaberg_20180531
     title: Heinabergslon, May 31
     sources: [heinaberg_20180531_cache]
@@ -206,6 +210,10 @@ caches:
   treasure_20190906_relief_cache:
     grids: [webmercator_TI]
     sources: [treasure_20190906_relief_wms]
+
+  treasure_20191223_cache:
+    grids: [webmercator_TI]
+    sources: [treasure_20191223_wms]
 
   treasure_20180604_cache:
     grids: [webmercator_TI]
@@ -408,6 +416,16 @@ sources:
     req:
       map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
       layers: treasure_20190906
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20191223_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20191223
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
