@@ -8,3 +8,4 @@ index2.html
 index-swipe.html
 cache/
 node_modules/
+*bundle.js
