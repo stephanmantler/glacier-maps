@@ -70,7 +70,7 @@ import('ol').then(_ => {
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
       var source = makeSource(ogl["layername"]);
-      source.setAttributions('glacier maps © <a href="http://www.hafjall.is/">Háfjall ehf.</a>');
+      source.setAttributions('glacier maps © <a href="http://www.hafjall.is/">Háfjall ehf.</a>. <a href="https://github.com/stephanmantler/glacier-maps/">Source on GitHub</a>.');
       var layer = new Tile({ opacity: 1, source: source, type: 'base', title: ogl["title"], visible:false, extent: ogl["extent"]});
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
