@@ -9,3 +9,4 @@ index-swipe.html
 cache/
 node_modules/
 *bundle.js
+dist/
