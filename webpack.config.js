@@ -6,8 +6,8 @@ module.exports = {
     treasure: './treasure/main.js'
   },
   output: {
-    path: __dirname +'/dist',
-    publicPath: '/dist',
+    path: __dirname +'/dist/',
+    publicPath: '/dist/',
     filename: '[name].js'
   },
   devServer: {
