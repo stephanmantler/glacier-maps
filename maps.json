@@ -12,6 +12,10 @@
       "layername": "treasure_20190906_relief",
       "title":"Relief, 2019-09-06",
       "extent": [-1809895, 9376929, -1806450, 9378960 ]
+    }, {
+      "layername": "treasure_20201107_relief",
+      "title":"Relief, 2020-11-07",
+      "extent": [-1810100, 9377300, -1806450, 9379055 ]
     }
   ],
   "Treasure Island - Orthophotos" : [
@@ -79,6 +83,19 @@
       "layername": "treasure_20191223",
       "title": "Ortho, 2019-12-23",
       "extent": [-1809935, 9376960, -1806829, 9378942 ]
+    }, {
+      "layername": "treasure_20200209",
+      "title": "Ortho, 2020-02-09",
+      "extent": [-1810096, 9377380, -1808045, 9378957 ]
+    }, {
+      "layername": "treasure_20200506",
+      "title": "Ortho, 2020-05-06",
+      "extent": [-1810096, 9377380, -1808045, 9378957 ]
+    }, {
+      "layername": "treasure_20201107",
+      "title": "Ortho, 2020-11-07",
+      "extent": [-1810100, 9377300, -1806450, 9379055 ]
+
     }
   ]
 }

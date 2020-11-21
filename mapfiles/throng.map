@@ -1,0 +1,54 @@
+MAP
+	NAME "Treasure Island 20180228"
+	STATUS ON
+	SIZE 1000 1000
+	EXTENT 439300 7109000 440100 7110200
+
+	IMAGETYPE png
+	UNITS DD
+
+	PROJECTION
+		"init=epsg:3857"
+	END
+
+	WEB
+		IMAGEPATH "/var/www/is.icecaves.map/map_tmp"
+		IMAGEURL "/map_tmp/"
+		METADATA
+			'wms_enable_request' '*'
+			'wms_srs' 'EPSG:32628'
+			#'wms_srs' 'EPSG:32628 EPSG:4326 EPSG:3857'
+		END #METADATA
+	END #WEB
+
+
+## from /var/www/is.icecaves.map/mapdata/throng_20201107/ (via regen.py)
+LAYER
+  NAME 'throng_20201107'
+  TYPE RASTER
+  STATUS ON
+  EXTENT -1806005.304 9381789.819 -1804525.445 9383676.168
+  TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20201107/tileIndex.shp
+  TILEITEM 'LOCATION'
+  PROCESSING 'RESAMPLE=AVERAGE'
+  PROJECTION
+    'init=epsg:3857'
+  END
+END
+
+## from /var/www/is.icecaves.map/mapdata/throng_20201107_relief/ (via regen.py)
+LAYER
+  NAME 'throng_20201107_relief'
+  TYPE RASTER
+  STATUS ON
+  EXTENT -1806005.076 9381789.965 -1804525.639 9383676.081
+  TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20201107_relief/tileIndex.shp
+  TILEITEM 'LOCATION'
+  PROCESSING 'RESAMPLE=AVERAGE'
+  PROJECTION
+    'init=epsg:3857'
+  END
+END
+
+#####
+END #MAP

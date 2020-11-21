@@ -25,6 +25,14 @@ layers:
     title: Fláajökull, Nov 14 2018
     sources: [flaa_20181114_cache]
 
+  - name: throng_20201107
+    title: Þröng, Nov 7 2020
+    sources: [throng_20201107_cache]
+
+  - name: throng_20201107_relief
+    title: Þröng, Nov 7 2020 (relief)
+    sources: [throng_20201107_relief_cache]
+
   - name: treasure_20180401
     title: Treasure Island, Apr 1 28 2018
     sources: [treasure_20180401_cache]
@@ -100,6 +108,22 @@ layers:
     title: Treasure Island, Dec 23 2019
     sources: [treasure_20191223_cache]
 
+  - name: treasure_20200209
+    title: Treasure Island, Feb 9 2020
+    sources: [treasure_20200209_cache]
+
+  - name: treasure_20200506
+    title: Treasure Island, May 6 2020
+    sources: [treasure_20200506_cache]
+
+  - name: treasure_20201107
+    title: Treasure Island, November 7 2020
+    sources: [treasure_20201107_cache]
+
+  - name: treasure_20201107_relief
+    title: Treasure Island, November 7 2020 (relief)
+    sources: [treasure_20201107_relief_cache]
+
   - name: heinaberg_20180531
     title: Heinabergslon, May 31
     sources: [heinaberg_20180531_cache]
@@ -126,7 +150,14 @@ caches:
   flaa_20181114_cache:
     grids: [webmercator_LMI]
     sources: [flaa_20181114_wms]
- 
+
+  throng_20201107_cache:
+    grids: [webmercator_LMI]
+    sources: [throng_20201107_wms]
+
+  throng_20201107_relief_cache:
+    grids: [webmercator_LMI]
+    sources: [throng_20201107_relief_wms]
 
   treasure_20180401_cache:
     grids: [webmercator_TI]
@@ -192,6 +223,22 @@ caches:
     grids: [webmercator_TI]
     sources: [treasure_20191223_wms]
 
+  treasure_20200209_cache:
+    grids: [webmercator_TI]
+    sources: [treasure_20200209_wms]
+
+  treasure_20200506_cache:
+    grids: [webmercator_TI]
+    sources: [treasure_20200506_wms]
+
+  treasure_20201107_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20201107_wms]
+
+  treasure_20201107_relief_cache:
+    grids: [webmercator_TI]
+    sources: [treasure_20201107_relief_wms]
+
   treasure_20180604_cache:
     grids: [webmercator_TI]
     sources: [treasure_20180604_wms]
@@ -248,11 +295,41 @@ sources:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
 
+  throng_20201107_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/throng.map
+      layers: throng_20201107
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  throng_20201107_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/throng.map
+      layers: throng_20201107_relief
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
   treasure_20180401_wms:
     type: mapserver
     req:
       map: /var/www/is.icecaves.map/mapfiles/treasure.map
       layers: treasure_20180401
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20180401_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      layers: treasure_20180401_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
@@ -408,6 +485,46 @@ sources:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
 
+  treasure_20200209_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20200209
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20200506_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20200506
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20201107_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20201107
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  treasure_20201107_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      layers: treasure_20201107_relief
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
   treasure_20190906_relief_wms:
     type: mapserver
     req:
@@ -487,11 +604,12 @@ grids:
     webmercator_TI:
         base: GLOBAL_WEBMERCATOR
 #        bbox: [-1850000.000, 9365000.000, -1750000.000, 9385000.000]
-#        origin: nw
+        origin: sw
+#        bbox_srs: EPSG:3857
     webmercator_LMI:
         base: GLOBAL_WEBMERCATOR
-        bbox: [208074.81240539486, 298461.7028617209, 795269.7309350342, 688919.6274458012]
-        bbox_srs: EPSG:3057
+        bbox: [-2056587.0588, 9101168.695, -1146597.0, 9844459.7153]
+        bbox_srs: EPSG:3857
 
 
 globals:
