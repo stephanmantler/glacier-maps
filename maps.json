@@ -94,8 +94,8 @@
     }, {
       "layername": "treasure_20201107",
       "title": "Ortho, 2020-11-07",
-      "extent": [-1810100, 9377300, -1806450, 9379055 ]
-
+      "extent": [-1810100, 9377300, -1806450, 9379055 ],
+      "remarks": "Finally a new map! this is the first mapping run with my DJI Mavic Air 2. Due to software limitations, flown entirely manually with some consequences for the achievable accuracy. Final output resolution is approximately 12cm per pixel."
     }
   ]
 }

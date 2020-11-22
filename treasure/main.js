@@ -53,7 +53,8 @@ import('ol').then(_ => {
       matrixSet: 'EPSG:3857'
     });
     var source = new WMTS(/** @type {!olx.source.WMTSOptions} */ (options));
-/*FXME         source.on('tileloadstart', function() { progress.addLoading(); });
+/*FXME
+         source.on('tileloadstart', function() { progress.addLoading(); });
          source.on('tileloadend', function() { progress.addLoaded(); });
          source.on('tileloaderror', function() { progress.addLoaded(); });
 */
@@ -81,7 +82,6 @@ import('ol').then(_ => {
 
   var lmiSource = makeSource("LMI_Kort");
   lmiSource.setAttributions('Landscape map layer © <a href="http://www.lmi.is/">Landmælingar Íslands / National Land Survey of Iceland</a>')
-
 
   var style = new Style({
     fill: new Fill({ color: 'rgba(255, 0, 0, 0.3)' }),
@@ -162,13 +162,11 @@ import('ol').then(_ => {
   window.addEventListener('resize', checkSize);
   checkSize();
 
-/*
-    var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers' });
+  var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true });
   map.addControl(layerSwitcher);
-  layerSwitcher.showPanel();
-*/
+  
 
-	/*
+  /*
   function cookiesEnabled() {
     var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
     Cookies.remove('check');
@@ -183,7 +181,9 @@ import('ol').then(_ => {
     }
   }
   */
-  import('../js/compare.js').then(function(Compare) { 
+
+/*
+  import('./js/compare.js').then(function(Compare) { 
     let other = layerGroups[1].getLayersArray()[3];
     other.setVisible(true);
     
@@ -192,6 +192,7 @@ import('ol').then(_ => {
     comparator.setLayer(other, true);
 
   })
+*/
 
 /*
   var defaultLocation = activeLayer["layername"];
