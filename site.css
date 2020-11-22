@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-size: 12px;
 }
 .compare {
   font-size: 1em;
@@ -85,8 +86,9 @@ ul.layerlist {
 }
 #map {
     height: 100%;
-    width: 100%;
+    width: 80%;
     padding: 0;
+    display: inline-block;
 }
 #map-container {
     padding: 0;
@@ -103,4 +105,21 @@ ul.layerlist {
 }
 .ol-swipe {
   top: 10%;
+}
+#switcher {
+  //float: right;
+  width: 18%;
+  height: 100%;
+  border: 1px solid black;
+  background-color: #f0f0ff;
+  font-size: 1em;
+  padding-top: 1em;
+  top: 0.5em;
+  float: right;
+}
+#switcher ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 10px;
 }

@@ -147,7 +147,6 @@ import('ol').then(_ => {
     fixContentHeight();
   }
   
-  
   function fixContentHeight(){
     /*
     var viewHeight = $(window).height();
@@ -162,9 +161,7 @@ import('ol').then(_ => {
   window.addEventListener('resize', checkSize);
   checkSize();
 
-  var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true });
-  map.addControl(layerSwitcher);
-  
+  var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true, target: document.getElementById('switcher') });
 
   /*
   function cookiesEnabled() {
@@ -208,10 +205,12 @@ import('ol').then(_ => {
   }
   */
   
+//  map.addControl(layerSwitcher);
   activeLayer.setVisible(true);
-  /*
-  layerSwitcher.renderPanel();
-  */
+
+  LayerSwitcher.renderPanel(map, document.getElementById('switcher'), {});
+  //  layerSwitcher.renderPanel(map, $('#switcher'), { reverse: true });
+  
   var extent = activeLayer.getExtent();
   console.log("extent: " + extent)
   map.getView().fit(extent);
