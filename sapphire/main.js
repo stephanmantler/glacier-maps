@@ -36,7 +36,7 @@ var compareChangeMap = function(map, item) {
 
 import('ol').then(_ => {
   ol = _;
-  return(fetch('/maps-sapphire.json'))
+  return(fetch('/maps.json'))
 }).then(function(data) {
   return(data.json());
 }).then(function(jsondata) {
