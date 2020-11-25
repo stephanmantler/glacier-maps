@@ -3,7 +3,8 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     main: './main.js',
-    treasure: './treasure/main.js'
+    treasure: './treasure/main.js',
+    sapphire: './sapphire/main.js'
   },
   output: {
     path: __dirname +'/dist/',
