@@ -88,12 +88,15 @@ ul.layerlist {
     min-height: 0;
     padding: 0;
     flex: 1;
+    flex-grow: 1;
 }
 #map-container {
     display: flex;
     padding: 0;
-    position: relative;
+//    position: relative;
     height: 100%;
+//    flex-grow: 1;
+    flex: 1;
 }
 #foot {
     font-size: .8em;
@@ -109,16 +112,17 @@ ul.layerlist {
 }
 #sidebar {
   //float: right;
-  width: 18%;
-  height: 100%;
   border: 1px solid black;
   border-top: none;
   border-collapse: collapse;
   background-color: #f0f0ff;
   font-size: 1em;
   padding-top: 1em;
-  top: 0.5em;
-  float: right;
+  width: 25em;
+  flex: 1;
+  flex-basis: 15em;
+  flex-grow: 0;
+  flex-direction: column;
 }
 div#head {
   width: 100%;
@@ -133,9 +137,10 @@ div#head {
   margin: 0;
 }
 #sidebar #logo {
-  position: absolute;
-  bottom: 0px;
   padding: 1em;
+}
+#sidebar #switcher {
+  overflow-y: scroll;
 }
 img#logo-image {
   width: 71px;
