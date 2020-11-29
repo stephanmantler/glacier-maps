@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     main: './main.js',
     treasure: './treasure/main.js',
+    dynjandi: './dynjandi/main.js',
     sapphire: './sapphire/main.js'
   },
   output: {

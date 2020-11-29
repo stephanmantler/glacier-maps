@@ -20,6 +20,10 @@ layers:
   - name: anakonda_dsm
     title: Anakonda, March 17 2018 (dsm)
     sources: [anakonda_20180317_dsm_cache]
+    
+  - name: dynjandi_20201104
+    title: Dynjandi, Nov 4 2020
+    sources: [dynjandi_20201104_cache]
 
   - name: flaajokull_20181114
     title: Fláajökull, Nov 14 2018
@@ -146,6 +150,9 @@ caches:
     grids: [webmercator_AN]
     sources: [anakonda_20180317_dsm_wms]
 
+  dynjandi_20201104_cache:
+    grids: [webmercator_LMI]
+    sources: [dynjandi_20201104_wms]
 
   flaa_20181114_cache:
     grids: [webmercator_LMI]
@@ -280,6 +287,16 @@ sources:
     req:
       map: /var/www/is.icecaves.map/mapfiles/treasure.map
       layers: anakonda_20180317_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+
+  dynjandi_20201104_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/dynjandi.map
+      layers: dynjandi_20201104
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
