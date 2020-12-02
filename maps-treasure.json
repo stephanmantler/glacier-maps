@@ -1,101 +1,104 @@
 {
-  "Treasure Island - Relief Maps" : [
-    {
-      "layername": "treasure_20190601_relief",
-      "title": "Relief, 2019-06-01",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190707_relief",
-      "title": "Relief, 2019-07-07",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190906_relief",
-      "title":"Relief, 2019-09-06",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20201107_relief",
-      "title":"Relief, 2020-11-07",
-      "extent": [-1810100, 9377300, -1806450, 9379055 ]
-    }
-  ],
-  "Treasure Island - Orthophotos" : [
-    {
-      "layername": "treasure_20171211",
-      "title": "Ortho, 2017-12-11",
-      "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
-    }, {
-      "layername": "treasure_20180228",
-      "title": "Ortho, 2018-02-28",
-      "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
-    }, {
-      "layername": "treasure_20180401",
-      "title": "Ortho, 2018-04-01",
-      "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
-    }, {
-      "layername": "treasure_20180604",
-      "title": "Ortho, 2018-06-04",
-      "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
-    }, {
-      "layername": "treasure_20180713",
-      "title": "Ortho, 2018-07-13",
-      "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
-    }, {
-      "layername": "treasure_20180802",
-      "title": "Ortho, 2018-08-02",
-      "extent": [-1809421.478, 9377079.907, -1806666.316, 9378798.001 ]
-    }, {
-      "layername": "treasure_20181101",
-      "title": "Ortho, 2018-11-01",
-      "extent": [-1809421.478, 9377079.907, -1806666.316, 9378798.001 ]
-    }, {
-      "layername": "treasure_20181122",
-      "title": "Ortho, 2018-11-22",
-      "extent": [-1809119.928, 9377223.438, -1805971.983, 9378762.046 ]
-    }, {
-      "layername": "treasure_20181221",
-      "title": "Ortho, 2018-12-21",
-      "extent": [-1809024.808, 9377170.800, -1806497.515, 9378733.064 ]
-    }, {
-      "layername": "treasure_20190124",
-      "title": "Ortho, 2019-01-24",
-      "extent": [-1809024.808, 9377170.800, -1806497.515, 9378733.064 ]
-    }, {
-      "layername": "treasure_20190224",
-      "title": "Ortho, 2019-02-24",
-      "extent": [-1809080.226, 9377163.681, -1806477.144, 9378915.457 ]
-    }, {
-      "layername": "treasure_20190321",
-      "title": "Ortho, 2019-03-21",
-      "extent": [-1809315, 9377150, -1806550, 9378940 ]
-    }, {
-      "layername": "treasure_20190601",
-      "title": "Ortho, 2019-06-01",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190707",
-      "title": "Ortho, 2019-07-07",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20190906",
-      "title": "Ortho, 2019-09-06",
-      "extent": [-1809895, 9376929, -1806450, 9378960 ]
-    }, {
-      "layername": "treasure_20191223",
-      "title": "Ortho, 2019-12-23",
-      "extent": [-1809935, 9376960, -1806829, 9378942 ]
-    }, {
-      "layername": "treasure_20200209",
-      "title": "Ortho, 2020-02-09",
-      "extent": [-1810096, 9377380, -1808045, 9378957 ]
-    }, {
-      "layername": "treasure_20200506",
-      "title": "Ortho, 2020-05-06",
-      "extent": [-1810096, 9377380, -1808045, 9378957 ]
-    }, {
-      "layername": "treasure_20201107",
-      "title": "Ortho, 2020-11-07",
-      "extent": [-1810100, 9377300, -1806450, 9379055 ],
-      "remarks": "Finally a new map! this is the first mapping run with my DJI Mavic Air 2. Due to software limitations, flown entirely manually with some consequences for the achievable accuracy. Final output resolution is approximately 12cm per pixel."
-    }
-  ]
+  "title": "Treasure Island – Breiðamerkurjökull / Jökulsárlón",
+  "layers": {
+    "Treasure Island - Relief Maps" : [
+      {
+        "layername": "treasure_20190601_relief",
+        "title": "Relief, 2019-06-01",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190707_relief",
+        "title": "Relief, 2019-07-07",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190906_relief",
+        "title":"Relief, 2019-09-06",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20201107_relief",
+        "title":"Relief, 2020-11-07",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
+      }
+    ],
+    "Treasure Island - Orthophotos" : [
+      {
+        "layername": "treasure_20171211",
+        "title": "Ortho, 2017-12-11",
+        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+      }, {
+        "layername": "treasure_20180228",
+        "title": "Ortho, 2018-02-28",
+        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+      }, {
+        "layername": "treasure_20180401",
+        "title": "Ortho, 2018-04-01",
+        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+      }, {
+        "layername": "treasure_20180604",
+        "title": "Ortho, 2018-06-04",
+        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+      }, {
+        "layername": "treasure_20180713",
+        "title": "Ortho, 2018-07-13",
+        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+      }, {
+        "layername": "treasure_20180802",
+        "title": "Ortho, 2018-08-02",
+        "extent": [-1809421.478, 9377079.907, -1806666.316, 9378798.001 ]
+      }, {
+        "layername": "treasure_20181101",
+        "title": "Ortho, 2018-11-01",
+        "extent": [-1809421.478, 9377079.907, -1806666.316, 9378798.001 ]
+      }, {
+        "layername": "treasure_20181122",
+        "title": "Ortho, 2018-11-22",
+        "extent": [-1809119.928, 9377223.438, -1805971.983, 9378762.046 ]
+      }, {
+        "layername": "treasure_20181221",
+        "title": "Ortho, 2018-12-21",
+        "extent": [-1809024.808, 9377170.800, -1806497.515, 9378733.064 ]
+      }, {
+        "layername": "treasure_20190124",
+        "title": "Ortho, 2019-01-24",
+        "extent": [-1809024.808, 9377170.800, -1806497.515, 9378733.064 ]
+      }, {
+        "layername": "treasure_20190224",
+        "title": "Ortho, 2019-02-24",
+        "extent": [-1809080.226, 9377163.681, -1806477.144, 9378915.457 ]
+      }, {
+        "layername": "treasure_20190321",
+        "title": "Ortho, 2019-03-21",
+        "extent": [-1809315, 9377150, -1806550, 9378940 ]
+      }, {
+        "layername": "treasure_20190601",
+        "title": "Ortho, 2019-06-01",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190707",
+        "title": "Ortho, 2019-07-07",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190906",
+        "title": "Ortho, 2019-09-06",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20191223",
+        "title": "Ortho, 2019-12-23",
+        "extent": [-1809935, 9376960, -1806829, 9378942 ]
+      }, {
+        "layername": "treasure_20200209",
+        "title": "Ortho, 2020-02-09",
+        "extent": [-1810096, 9377380, -1808045, 9378957 ]
+      }, {
+        "layername": "treasure_20200506",
+        "title": "Ortho, 2020-05-06",
+        "extent": [-1810096, 9377380, -1808045, 9378957 ]
+      }, {
+        "layername": "treasure_20201107",
+        "title": "Ortho, 2020-11-07",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ],
+        "remarks": "Finally a new map! this is the first mapping run with my DJI Mavic Air 2. Due to software limitations, flown entirely manually with some consequences for the achievable accuracy. Final output resolution is approximately 12cm per pixel."
+      }
+    ]
+  }
 }

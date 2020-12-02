@@ -20,8 +20,9 @@ import LayerSwitcher from 'ol-layerswitcher';
 
 import Swipe from 'ol-ext/control/Swipe';
 //FIXME     var progress = new Progress(document.getElementById('progress'));
+console.log("registering Builder...")
 
-export default function builder(mapDef) {
+export function Builder(mapDef) {
 
 var parser = new WMTSCapabilities();
 var map;
@@ -42,7 +43,7 @@ import('ol').then(_ => {
 }).then(function(data) {
   return(data.json());
 }).then(function(jsondata) {
-  overlays = jsondata;
+  overlays = jsondata.layers;
   return fetch('/cache/wmts/1.0.0/WMTSCapabilities.xml')
 }).then(function(response) {
   return response.text();

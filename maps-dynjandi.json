@@ -1,9 +1,12 @@
 {
-  "Dynjandi" : [
-    {
-      "layername": "dynjandi_20201104",
-      "title": "Dynjandi, 2020-11-04",
-      "extent": [-1683840.770, 9423845.328, -1679336.669, 9426590.081]
-    }
-  ]
+  "title": "Dynjandi",
+  "layers": {
+    "Dynjandi" : [
+      {
+        "layername": "dynjandi_20201104",
+        "title": "Dynjandi, 2020-11-04",
+        "extent": [-1683840.770, 9423845.328, -1679336.669, 9426590.081]
+      }
+    ]
+  }
 }

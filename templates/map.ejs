@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-527994-13', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-
     <meta charset="UTF-8">
     <title>Local Situation Maps - Háfjall ehf.</title>
     <link rel="stylesheet" href="https://use.typekit.net/twd0ihj.css">
@@ -24,7 +12,7 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <script src="/dist/sapphire.js"></script>
+    <script src="/dist/main.js"></script>
     <script src="/js/progress.js"></script>
     <link rel="stylesheet" href="/site.css" type="text/css">
     <style>
@@ -40,11 +28,16 @@
     </style>
   </head>
   <body>
-    <div id="head"><h1>Sapphire Ice Cave – Breiðamerkurjökull / Þröng</h1></div>
+    <div id="head"><h1><%= title %></h1></div>
     <div id="map-container">
       <div id="map" class="map"></div>
       <div id="sidebar"><div id="switcher"></div><div id="logo"><img id="logo-image" src="/media/stepman_logo.png" />Mapping & code by <a href="https://www.stepman.is/">stepman</a>. Check us out on <a href="https://www.instagram.com/stepman/">Instagram</a>!</div></div>
       <div id="progress"></div>
     </div>
+  <script>
+  $(function() {
+    stepman.Builder('/<%= mapDef %>');
+  });
+  </script>
   </body>
   </html>

@@ -1,16 +1,19 @@
 {
-  "Sapphire / Þröng - Relief" : [
-    {
-      "layername": "throng_20201107_relief",
-      "title": "Ortho, 2020-11-07",
-      "extent": [-1806005.304, 9381789.819, -1804525.445, 9383676.168]
-    }
-  ], 
-  "Sapphire / Þröng" : [
-    {
-      "layername": "throng_20201107",
-      "title": "Ortho, 2020-11-07",
-      "extent": [-1806005.304, 9381789.819, -1804525.445, 9383676.168]
-    }
-  ]
+  "title": "Sapphire Ice Cave – Breiðamerkurjökull / Þröng",
+  "layers": {
+    "Sapphire / Þröng - Relief" : [
+      {
+        "layername": "throng_20201107_relief",
+        "title": "Ortho, 2020-11-07",
+        "extent": [-1806005.304, 9381789.819, -1804525.445, 9383676.168]
+      }
+    ], 
+    "Sapphire / Þröng" : [
+      {
+        "layername": "throng_20201107",
+        "title": "Ortho, 2020-11-07",
+        "extent": [-1806005.304, 9381789.819, -1804525.445, 9383676.168]
+      }
+    ]
+  }
 }
