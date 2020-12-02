@@ -10,7 +10,7 @@ console.log('map configurations found: ' + maps.join(' '))
 
 var webPackConfigs = []
 
-const re = /maps-(.+)\.json/
+const re = /maps-(.*)\.json/
 for(map of maps) {
   const rematch = re.exec(map)
   if(!rematch) {
