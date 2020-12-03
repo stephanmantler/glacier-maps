@@ -12,19 +12,23 @@ const path = require('path')
 // HtmlWebpackPlugin defs needed to create static html output from them
 //
 console.log("collecting source files...")
-var maps = glob.sync('maps-*.json')
+var maps = glob.sync('maps/*.json')
 
 var webPackConfigs = []
 
-const re = /maps-(.+)\.json/
+const re = /maps\/(.+)\.json/
 for(map of maps) {
   const rematch = re.exec(map)
   if(!rematch) {
     continue
   }
-  const basename = rematch[1]
-  const mapdef = JSON.parse(fs.readFileSync(map, 'utf8'));
+  var basename = rematch[1]
+  const mapdef = JSON.parse(fs.readFileSync(map, 'utf8'))
   console.log(' 🗺 ' +basename + ": "+ mapdef.title)
+  
+  if(basename === 'index') {
+    basename='.'
+  }
   
   webPackConfigs.push(
     new HtmlWebpackPlugin({
