@@ -53,7 +53,7 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js'
   },
-  devtool: "source-map",
+  //devtool: "source-map",
   devServer: {
     //contentBase: path.join(__dirname, 'dist'),
     host: '0.0.0.0',

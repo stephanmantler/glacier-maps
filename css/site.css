@@ -5,6 +5,8 @@ body {
     padding: 0;
     height: 100%;
     font-size: 12px;
+    display: flex;
+    flex-direction: column;
 }
 .compare {
   font-size: 1em;
@@ -120,6 +122,7 @@ ul.layerlist {
   flex-basis: 15em;
   flex-grow: 0;
   flex-direction: column;
+  display: flex;
 }
 div#head {
   width: 100%;
@@ -138,6 +141,7 @@ div#head {
 }
 #sidebar #switcher {
   overflow-y: scroll;
+  flex-grow: 1;
 }
 img#logo-image {
   width: 71px;

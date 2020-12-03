@@ -1,10 +1,12 @@
-import 'ol/ol.css';
-import 'ol-ext/control/Swipe.css';
-import '../css/site.css';
+import 'ol/ol.css'
+import 'ol-ext/control/Swipe.css'
+import '../css/site.css'
+import '../css/ol-layerswitcher.css'
+
 
 //import {Map, View} from 'ol';
 import Tile from 'ol/layer/Tile';
-import Vector from 'ol/layer/Vector';
+// import Vector from 'ol/layer/Vector';
 import Group from 'ol/layer/Group';
 import XYZ from 'ol/source/XYZ';
 import GeoJSON from 'ol/format/GeoJSON';
@@ -33,6 +35,7 @@ var attribution = new Attribution({
 
 var overlays = {}
 var ol;
+var Vector;
 
 var compareChangeMap = function(map, item) {
   console.log("compareChangeMap: ",map,item);
@@ -103,16 +106,7 @@ import('ol').then(_ => {
     }
     return style;
   }
-
-  var extents_2017_18 = new Vector({
-    source: new Vector({
-      url: 'http://map.icecaves.is/data/IceCaveExtents.geojson',
-      format: new GeoJSON()
-    }),
-    style: styleFunction,
-    title: "Ice Cave Extents (2017-18)"
-  });
-
+  
   var gae = function(e) {
     ga('send', {
       hitType: 'event',
@@ -143,6 +137,30 @@ import('ol').then(_ => {
     })
   });
   map.getLayers().extend(layerGroups);
+  
+  var VectorLayer;
+  var VectorSource;
+  
+  /* == annotation overlay == */
+  import('ol/layer/Vector').then( module => {
+    VectorLayer = module.default
+    return import('ol/source/Vector')
+  }).then( module => {
+    VectorSource = module.default;
+    var jsonFormat = new GeoJSON()
+    var extentsSource = new VectorSource({
+      url: '/data/IceCaveExtents.geojson',
+      format: jsonFormat
+    })
+
+    var extents_2017_18 = new VectorLayer({
+      source: extentsSource,
+      style: styleFunction,
+      title: "Ice Cave Extents (2017-18)"
+    });
+    map.addLayer(extents_2017_18);
+  })
+
   function checkSize() {
     var small = map.getSize()[0] < 600;
     attribution.setCollapsible(small);
