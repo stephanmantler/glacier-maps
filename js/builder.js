@@ -8,7 +8,7 @@ import '../css/ol-layerswitcher.css'
 import Tile from 'ol/layer/Tile';
 // import Vector from 'ol/layer/Vector';
 import Group from 'ol/layer/Group';
-import XYZ from 'ol/source/XYZ';
+//unused import XYZ from 'ol/source/XYZ';
 import GeoJSON from 'ol/format/GeoJSON';
 import {defaults, ScaleLine} from 'ol/control';
 
@@ -17,11 +17,11 @@ import Attribution from 'ol/control/Attribution';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
-import Text from 'ol/style/Text';
+//unused import Text from 'ol/style/Text';
 import Fill from 'ol/style/Fill';
 import LayerSwitcher from 'ol-layerswitcher';
 
-import Swipe from 'ol-ext/control/Swipe';
+//unused import Swipe from 'ol-ext/control/Swipe';
 //FIXME     var progress = new Progress(document.getElementById('progress'));
 console.log("registering Builder...")
 
@@ -35,11 +35,6 @@ var attribution = new Attribution({
 
 var overlays = {}
 var ol;
-var Vector;
-
-var compareChangeMap = function(map, item) {
-  console.log("compareChangeMap: ",map,item);
-}
 
 import('ol').then(_ => {
   ol = _;
@@ -55,10 +50,10 @@ import('ol').then(_ => {
   var caps = parser.read(text);
 
   function makeSource(layerName) {
-    var options = optionsFromCapabilities(caps, {
-      layer: layerName,
-      matrixSet: 'EPSG:3857'
-    });
+   var options = optionsFromCapabilities(caps, {
+     layer: layerName,
+     matrixSet: 'EPSG:3857'
+  });
     var source = new WMTS(/** @type {!olx.source.WMTSOptions} */ (options));
 /*FXME
          source.on('tileloadstart', function() { progress.addLoading(); });
@@ -69,8 +64,8 @@ import('ol').then(_ => {
   }
   
   var activeLayer;
-  var layerListLeft = "";
-  var layerListRight = "";
+//  var layerListLeft = "";
+//  var layerListRight = "";
 
   var layerGroups = []
   for(var og in overlays) {
@@ -99,21 +94,12 @@ import('ol').then(_ => {
      stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', lineDash: [5,5], width: 2 })
   });
 
-  function styleFunction(feature, resolution) {
+  function styleFunction(feature /*, resolution */) {
     var status = feature.get('status');
     if (status == '2') {
       return style_conf2;
     }
     return style;
-  }
-  
-  var gae = function(e) {
-    ga('send', {
-      hitType: 'event',
-      eventCategory:'Layers',
-      eventAction:this.getVisible() ? 'show':'hide',
-      eventLabel:this.get('title')
-    })
   }
   
   var scale = new ScaleLine({
@@ -159,6 +145,7 @@ import('ol').then(_ => {
       title: "Ice Cave Extents (2017-18)"
     });
     map.addLayer(extents_2017_18);
+    LayerSwitcher.renderPanel(map, document.getElementById('switcher'), {});
   })
 
   function checkSize() {
@@ -182,7 +169,8 @@ import('ol').then(_ => {
   window.addEventListener('resize', checkSize);
   checkSize();
 
-  var layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true, target: document.getElementById('switcher') });
+  // eslint-disable-next-line no-unused-vars
+  const layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true, target: document.getElementById('switcher') });
 
   /*
   function cookiesEnabled() {
