@@ -93,9 +93,7 @@ ul.layerlist {
 #map-container {
     display: flex;
     padding: 0;
-//    position: relative;
     height: 100%;
-//    flex-grow: 1;
     flex: 1;
 }
 #foot {
@@ -111,7 +109,6 @@ ul.layerlist {
   top: 10%;
 }
 #sidebar {
-  //float: right;
   border: 1px solid black;
   border-top: none;
   border-collapse: collapse;

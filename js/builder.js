@@ -1,5 +1,6 @@
 import 'ol/ol.css';
 import 'ol-ext/control/Swipe.css';
+import '../css/site.css';
 
 //import {Map, View} from 'ol';
 import Tile from 'ol/layer/Tile';
