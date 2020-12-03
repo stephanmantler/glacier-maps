@@ -1,3 +1,6 @@
+import __dirname from 'node'
+
+// eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -5,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const glob = require('glob')
 const fs  = require('fs')
+// eslint-disable-next-line no-unused-vars
 const path = require('path')
 
 //
@@ -17,7 +21,7 @@ var maps = glob.sync('maps/*.json')
 var webPackConfigs = []
 
 const re = /maps\/(.+)\.json/
-for(map of maps) {
+for(var map of maps) {
   const rematch = re.exec(map)
   if(!rematch) {
     continue
