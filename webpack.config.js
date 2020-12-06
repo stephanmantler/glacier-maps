@@ -1,5 +1,3 @@
-import __dirname from 'node'
-
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
