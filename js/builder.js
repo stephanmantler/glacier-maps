@@ -146,7 +146,9 @@ import('ol').then(_ => {
   });
   map.getLayers().extend(layerGroups);
   
-  function addCaveExtentsLayer() {
+  // not always using this for now ...
+  // eslint-disable-next-line no-unused-vars
+  function addCaveExtentsLayer(jsonfile) {
   var VectorLayer;
   var VectorSource;
 
@@ -175,7 +177,7 @@ import('ol').then(_ => {
       VectorSource = module.default;
       var jsonFormat = new GeoJSON()
       var extentsSource = new VectorSource({
-        url: '/data/IceCaveExtents.geojson',
+        url: jsonfile,
         format: jsonFormat
       })
   
@@ -189,75 +191,24 @@ import('ol').then(_ => {
     })
   }
   
+  /*
   if(!isMobile()) {
-    addCaveExtentsLayer()
+    addCaveExtentsLayer('/data/IceCaveExtents.geojson')
   }
+  */
 
   function checkSize() {
     var small = map.getSize()[0] < 600;
     attribution.setCollapsible(small);
     attribution.setCollapsed(small);
-    fixContentHeight();
   }
   
-  function fixContentHeight(){
-    /*
-    var viewHeight = $(window).height();
-    var header = $("div#head");
-    var footer = $("div#foot");
-    var content = $("div#map");
-    var contentHeight = viewHeight - header.outerHeight() - footer.outerHeight() - 40;
-    content.height(contentHeight);
-    map.updateSize();
-    */
-  }
   window.addEventListener('resize', checkSize);
   checkSize();
 
   // eslint-disable-next-line no-unused-vars
   const layerSwitcher = new LayerSwitcher({ tipLabel: 'Layers', activationMode: 'click', startActive: true, target: document.getElementById('switcher') });
 
-  /*
-  function cookiesEnabled() {
-    var r = Cookies.set('check', 'valid', { expires: 1 }) && Cookies.get('check') == 'valid';
-    Cookies.remove('check');
-    return r;
-  }
-
-  if(cookiesEnabled()) {
-    var tag = "seen_2018005";
-    if(Cookies.get('welcome') != tag) {
-      Cookies.set("welcome", tag, {expires: 30});
-      $("#welcome").modal({fadeDuration: 100});
-    }
-  }
-  */
-
-/*
-  import('./js/compare.js').then(function(Compare) { 
-    let other = layerGroups[1].getLayersArray()[3];
-    other.setVisible(true);
-    
-    var comparator = new Compare.default(map, overlays);
-    comparator.setLayer(activeLayer, false);
-    comparator.setLayer(other, true);
-
-  })
-*/
-
-/*
-  var defaultLocation = activeLayer["layername"];
-  if(window.location.hash != "") {
-    var loc = window.location.hash.substr(1)
-    console.log("anchor: " + loc);
-    if(layers[loc] != null) {
-      defaultLocation = loc;
-      console.log("focusing on layer");
-    } else {
-      console.log("unknown layer :(");
-    }
-  }
-  */
   
 //  map.addControl(layerSwitcher);
   activeLayer.setVisible(true);
