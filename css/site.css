@@ -158,9 +158,14 @@ div#mobileswitcher {
 
 /* smartphones, touchscreens */
 @media (hover: none) and (pointer: coarse) {
+  
   div#mobileswitcher {
     display: inherit;
-    font-size: 20px !important;
+    font-size: 10px !important;
+  }
+  
+  #head h1 {
+    font-size: 12px;
   }
 
   .compare {
