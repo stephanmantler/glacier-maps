@@ -48,6 +48,15 @@ import('ol').then(_ => {
   return response.text();
 }).then(function(text) {
   var caps = parser.read(text);
+  
+  function mediaQueryChanged() {
+    console.log("media query change")
+  }
+    
+  const mQuery = window.matchMedia('(max-width: 600px) and (orientation: portrait)')
+  mQuery.addListener(mediaQueryChanged)
+  
+  function isMobile() { return mQuery.matches }
 
   function makeSource(layerName) {
    var options = optionsFromCapabilities(caps, {
@@ -67,9 +76,32 @@ import('ol').then(_ => {
 //  var layerListLeft = "";
 //  var layerListRight = "";
 
+  var layersByName = {}
+
+  var mobileSwitcher = document.createElement("div")
+  mobileSwitcher.setAttribute("id", "mobileswitcher")
+  var layerSelectList = document.createElement("select")
+  mobileSwitcher.appendChild(layerSelectList)
+  
+  /* eslint-disable no-undef */
+  $("#head").append(mobileSwitcher)
+  $(layerSelectList).on('change', function() {
+    const selected = $(layerSelectList).val()
+    console.log("-> "+selected)
+    for(var k in layersByName) {
+      layersByName[k].setVisible( k == selected )
+    }
+  })
+  /* eslint-enable no-undef */
+  
   var layerGroups = []
   for(var og in overlays) {
     var group = new Group({title: og, layers:[]})
+    
+    var optgroup = document.createElement("optgroup")
+    optgroup.setAttribute("label", og)
+    layerSelectList.appendChild(optgroup)
+    
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
       var source = makeSource(ogl["layername"]);
@@ -78,6 +110,13 @@ import('ol').then(_ => {
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
       group.getLayers().push(layer);
+      layersByName[ogl['layername']] = layer
+      
+      var oge = document.createElement("option")
+      oge.setAttribute("value", ogl["layername"])
+      oge.innerHTML = ogl["title"]
+      oge.setAttribute("label", ogl["title"])
+      optgroup.appendChild(oge)
     }
     layerGroups.push(group);
   }
@@ -85,23 +124,6 @@ import('ol').then(_ => {
   var lmiSource = makeSource("LMI_Kort");
   lmiSource.setAttributions('Landscape map layer © <a href="http://www.lmi.is/">Landmælingar Íslands / National Land Survey of Iceland</a>')
 
-  var style = new Style({
-    fill: new Fill({ color: 'rgba(255, 0, 0, 0.3)' }),
-    stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', width: 2 })
-  });
-  var style_conf2 = new Style({
-    fill: new Fill({ color: 'rgba(255, 0, 0, 0.2)' }),
-     stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', lineDash: [5,5], width: 2 })
-  });
-
-  function styleFunction(feature /*, resolution */) {
-    var status = feature.get('status');
-    if (status == '2') {
-      return style_conf2;
-    }
-    return style;
-  }
-  
   var scale = new ScaleLine({
 //    units: 'metric',
     bar: true,
@@ -124,29 +146,52 @@ import('ol').then(_ => {
   });
   map.getLayers().extend(layerGroups);
   
+  function addCaveExtentsLayer() {
   var VectorLayer;
   var VectorSource;
-  
-  /* == annotation overlay == */
-  import('ol/layer/Vector').then( module => {
-    VectorLayer = module.default
-    return import('ol/source/Vector')
-  }).then( module => {
-    VectorSource = module.default;
-    var jsonFormat = new GeoJSON()
-    var extentsSource = new VectorSource({
-      url: '/data/IceCaveExtents.geojson',
-      format: jsonFormat
-    })
 
-    var extents_2017_18 = new VectorLayer({
-      source: extentsSource,
-      style: styleFunction,
-      title: "Ice Cave Extents (2017-18)"
+    /* == annotation overlay == */
+    var style = new Style({
+      fill: new Fill({ color: 'rgba(255, 0, 0, 0.3)' }),
+      stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', width: 2 })
     });
-    map.addLayer(extents_2017_18);
-    LayerSwitcher.renderPanel(map, document.getElementById('switcher'), {});
-  })
+    var style_conf2 = new Style({
+      fill: new Fill({ color: 'rgba(255, 0, 0, 0.2)' }),
+       stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', lineDash: [5,5], width: 2 })
+    });
+    
+    function styleFunction(feature /*, resolution */) {
+      var status = feature.get('status');
+      if (status == '2') {
+        return style_conf2;
+      }
+      return style;
+    }
+    
+    import('ol/layer/Vector').then( module => {
+      VectorLayer = module.default
+      return import('ol/source/Vector')
+    }).then( module => {
+      VectorSource = module.default;
+      var jsonFormat = new GeoJSON()
+      var extentsSource = new VectorSource({
+        url: '/data/IceCaveExtents.geojson',
+        format: jsonFormat
+      })
+  
+      var extents_2017_18 = new VectorLayer({
+        source: extentsSource,
+        style: styleFunction,
+        title: "Ice Cave Extents (2017-18)"
+      });
+      map.addLayer(extents_2017_18);
+      LayerSwitcher.renderPanel(map, document.getElementById('switcher'), {});
+    })
+  }
+  
+  if(!isMobile()) {
+    addCaveExtentsLayer()
+  }
 
   function checkSize() {
     var small = map.getSize()[0] < 600;

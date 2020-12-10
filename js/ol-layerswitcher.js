@@ -225,7 +225,8 @@
         
         var ul = document.createElement('ul');
         this.panel.appendChild(ul);
-        this.renderLayers_(this.getMap(), ul);
+        //this.renderLayers_(this.getMap(), ul);
+        this.renderLayersMobile_(this.getMap(), ul);
       }
         
       /**
@@ -331,7 +332,7 @@
       /**
        * Render all layers that are children of a group.
        * @private
-       * @param {ol.layer.Group} lyr Group layer whos children will be rendered.
+       * @param {ol.layer.Group} lyr Group layer whose children will be rendered.
        * @param {Element} elm DOM element that children will be appended to.
        */
         
@@ -347,7 +348,26 @@
           }
         }
       }
-        
+      
+      /**
+       * Render all layers as a mobile-friendly option list.
+       * @private
+       */
+       
+    },{
+      key: 'renderLayersMobile_',
+      value: function renderLayersMobile_(lyr, elm) {
+        var lyrs = lyr.getLayers().getArray().slice().reverse();
+        // we'll build up the option groups in here
+        var selectLayers = document.createElement('select');
+        for (var i = 0, l; i < lyrs.length; i++) {
+          l = lyrs[i];
+          if (l.get('title')) {
+            elm.appendChild(this.renderLayer_(l, i));
+          }
+        }
+      }
+      
       /**
        * **Static** Call the supplied function for each layer in the passed layer group
        * recursing nested groups.

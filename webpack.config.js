@@ -55,12 +55,14 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js'
   },
-  //devtool: "source-map",
+  devtool: "source-map",
   devServer: {
     //contentBase: path.join(__dirname, 'dist'),
     host: '0.0.0.0',
     hot: true,
-    port: 8090
+    port: 8090,
+    bonjour: true,
+    disableHostCheck: true
   },
   module: {
     rules: [

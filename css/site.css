@@ -11,12 +11,7 @@ body {
 .compare {
   font-size: 1em;
 }
-/* smartphones, touchscreens */
-@media (hover: none) and (pointer: coarse) {
-  .compare {
-    font-size: 1.3em;
-  }
-}
+
 div#compare-menu {
   position: absolute;
   top: 5px;
@@ -155,4 +150,25 @@ img#logo-image {
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 10px;
+}
+
+div#mobileswitcher {
+  display: none;
+}
+
+/* smartphones, touchscreens */
+@media (hover: none) and (pointer: coarse) {
+  div#mobileswitcher {
+    display: inherit;
+    font-size: 20px !important;
+  }
+
+  .compare {
+    font-size: 1.3em;
+  }
+
+  #sidebar {
+    display: none;
+    background-color: #fff0f0;
+  }
 }
