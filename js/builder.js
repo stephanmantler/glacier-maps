@@ -56,6 +56,7 @@ import('ol').then(_ => {
   const mQuery = window.matchMedia('(max-width: 600px) and (orientation: portrait)')
   mQuery.addListener(mediaQueryChanged)
   
+  // eslint-disable-next-line no-unused-vars
   function isMobile() { return mQuery.matches }
 
   function makeSource(layerName) {
