@@ -177,3 +177,7 @@ div#mobileswitcher {
     background-color: #fff0f0;
   }
 }
+
+.ol-scale-step-text {
+  text-shadow: 0 0 2px #FFFFFF, 0 0 2px #FFFFFF, 0 0 2px #FFFFFF, 0 0 2px #FFFFFF, 0 0 2px #FFFFFF !important;
+}
