@@ -118,10 +118,12 @@ import('ol').then(_ => {
       oge.innerHTML = ogl["title"]
       oge.setAttribute("label", ogl["title"])
       optgroup.appendChild(oge)
+      $(layerSelectList).val(ogl["layername"])
     }
     layerGroups.push(group);
   }
-
+  
+  
   var lmiSource = makeSource("LMI_Kort");
   lmiSource.setAttributions('Landscape map layer © <a href="http://www.lmi.is/">Landmælingar Íslands / National Land Survey of Iceland</a>')
 
@@ -130,7 +132,7 @@ import('ol').then(_ => {
     bar: true,
 //    steps: 4,
 //    text: true,
-    minWidth: 140
+    minWidth: 80
   });
 
   map = new ol.Map({
