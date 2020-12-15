@@ -93,9 +93,6 @@ import('ol').then(_ => {
     console.log("-> "+selected)
     for(var k in layersByName) {
       layersByName[k].setVisible( k == selected )
-      if( k == selected ) {
-        resetZoom.extent = layersByName[k].getExtent()
-      }
     }
   })
   /* eslint-enable no-undef */
@@ -123,6 +120,7 @@ import('ol').then(_ => {
         visible:false,
         extent: ogl["extent"]
       })
+      layer.on('change:visible', updateHomeExtents)
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
       group.getLayers().push(layer);
@@ -155,6 +153,16 @@ import('ol').then(_ => {
     extent: layer.getExtent(),
     label: '⤢'
   })
+  
+  function updateHomeExtents() {
+    for(var k in layersByName) {
+      if(!layersByName[k].getVisible()) {
+        continue
+      }
+      console.log(" home extents updated for " + k)
+      resetZoom.extent = layersByName[k].getExtent()
+    }
+  }
 
   map = new ol.Map({
     layers: [
@@ -174,7 +182,6 @@ import('ol').then(_ => {
     })
   });
   map.getLayers().extend(layerGroups);
-  
   // not always using this for now ...
   // eslint-disable-next-line no-unused-vars
   function addCaveExtentsLayer(jsonfile) {
@@ -183,12 +190,23 @@ import('ol').then(_ => {
 
     /* == annotation overlay == */
     var style = new Style({
-      fill: new Fill({ color: 'rgba(255, 0, 0, 0.3)' }),
-      stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', width: 2 })
+      fill: new Fill({
+        color: 'rgba(255, 0, 0, 0.3)'
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,0,0, 0.6',
+        width: 2
+      })
     });
     var style_conf2 = new Style({
-      fill: new Fill({ color: 'rgba(255, 0, 0, 0.2)' }),
-       stroke: new Stroke({ color: 'rgba(255,0,0, 0.6', lineDash: [5,5], width: 2 })
+      fill: new Fill({
+        color: 'rgba(255, 0, 0, 0.2)'
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,0,0, 0.6',
+        lineDash: [5,5],
+        width: 2
+      })
     });
     
     function styleFunction(feature /*, resolution */) {
