@@ -14,6 +14,7 @@ import {defaults, ScaleLine} from 'ol/control';
 
 import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
 import Attribution from 'ol/control/Attribution';
+import ZoomToExtent from 'ol/control/ZoomToExtent';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
@@ -27,6 +28,7 @@ console.log("registering Builder...")
 
 export function Builder(mapDef) {
 
+var resetZoom;
 var parser = new WMTSCapabilities();
 var map;
 var attribution = new Attribution({
@@ -91,6 +93,9 @@ import('ol').then(_ => {
     console.log("-> "+selected)
     for(var k in layersByName) {
       layersByName[k].setVisible( k == selected )
+      if( k == selected ) {
+        resetZoom.extent = layersByName[k].getExtent()
+      }
     }
   })
   /* eslint-enable no-undef */
@@ -134,6 +139,11 @@ import('ol').then(_ => {
 //    text: true,
     minWidth: 80
   });
+  
+  resetZoom = new ZoomToExtent({
+    extent: layer.getExtent(),
+    label: '⤢'
+  })
 
   map = new ol.Map({
     layers: [
@@ -141,7 +151,7 @@ import('ol').then(_ => {
       /* extents_2017_18 */
     ],
     target: 'map',
-    controls: defaults({attribution: false}).extend([attribution, scale]),
+    controls: defaults({attribution: false}).extend([attribution, scale, resetZoom]),
     view: new ol.View({
       center: [-1807300,9377900],
       zoom: 16
