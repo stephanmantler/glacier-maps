@@ -111,8 +111,18 @@ import('ol').then(_ => {
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
       var source = makeSource(ogl["layername"]);
-      source.setAttributions('glacier maps © <a href="http://www.stepman.is/">stepman</a>. <a href="https://github.com/stephanmantler/glacier-maps/">Source on GitHub</a>.');
-      var layer = new Tile({ opacity: 1, source: source, type: 'base', title: ogl["title"], visible:false, extent: ogl["extent"]});
+      source.setAttributions(
+        'glacier maps © <a href="http://www.stepman.is/">stepman</a>. '+
+        '<a href="https://github.com/stephanmantler/glacier-maps/">Source on GitHub</a>.'
+      )
+      var layer = new Tile({
+        opacity: 1,
+        source: source,
+        type: 'base',
+        title: ogl["title"],
+        visible:false,
+        extent: ogl["extent"]
+      })
       // lazy way to remember the very last layer we've added
       activeLayer = layer;
       group.getLayers().push(layer);
@@ -123,6 +133,7 @@ import('ol').then(_ => {
       oge.innerHTML = ogl["title"]
       oge.setAttribute("label", ogl["title"])
       optgroup.appendChild(oge)
+      // eslint-disable-next-line no-undef
       $(layerSelectList).val(ogl["layername"])
     }
     layerGroups.push(group);
@@ -147,7 +158,12 @@ import('ol').then(_ => {
 
   map = new ol.Map({
     layers: [
-      new Tile({ source: lmiSource, type: 'overlay' /* 'basebase' */, title:'Base Map', visible: false }),
+      new Tile({
+        source: lmiSource,
+        type: 'overlay' /* 'basebase' */,
+        title:'Base Map',
+        visible: false
+      }),
       /* extents_2017_18 */
     ],
     target: 'map',
