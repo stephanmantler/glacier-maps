@@ -157,9 +157,17 @@ div#mobileswitcher {
   display: none;
 }
 
+.ol-attribution li:not(:first-child)::before {
+  content: " • ";
+}
+
 /* smartphones, touchscreens */
 @media (hover: none) and (pointer: coarse) {
   
+  .ol-attribution li {
+    font-size: 0.5rem;
+  }
+
   div#mobileswitcher {
     display: inherit;
     font-size: 10px !important;

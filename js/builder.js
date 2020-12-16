@@ -139,7 +139,7 @@ import('ol').then(_ => {
   
   
   var lmiSource = makeSource("LMI_Kort");
-  lmiSource.setAttributions('Landscape map layer © <a href="http://www.lmi.is/">Landmælingar Íslands / National Land Survey of Iceland</a>')
+  lmiSource.setAttributions('Base map © <a href="http://www.lmi.is/">Landmælingar Íslands / National Land Survey of Iceland</a>')
 
   var scale = new ScaleLine({
 //    units: 'metric',
@@ -170,11 +170,13 @@ import('ol').then(_ => {
         source: lmiSource,
         type: 'overlay' /* 'basebase' */,
         title:'Base Map',
-        visible: false
+        visible: true
       }),
       /* extents_2017_18 */
     ],
     target: 'map',
+    
+    pixelRatio: 4*window.devicePixelRatio,
     controls: defaults({attribution: false}).extend([attribution, scale, resetZoom]),
     view: new ol.View({
       center: [-1807300,9377900],
