@@ -103,4 +103,102 @@ mapfile.close()
 
 print("🚛 writing cache config ...")
 
+cachefile = open("/var/www/is.icecaves.map/mapcache/mapcache.yaml", "w")
+
+cachefile.write("""
+services:
+  demo:
+  tms:
+    use_grid_names: true
+    # origin for /tiles service
+    origin: 'nw'
+  kml:
+      use_grid_names: true
+  wmts:
+  wms:
+    md:
+      title: Hafjall ehf. MapProxy
+      abstract: WMS/WMTS cache owned and operated by Hafjall ehf.
+
+layers:
+""")
+for layer in layers:
+    tiledir = layer[0]
+    extent = layer[1]
+    shapefile = layer[2]
+    layername = path.basename(path.normpath(tiledir))
+    
+    cachefile.write("  - name: "+layername+"\n")
+    cachefile.write("    title: "+layername+"\n")
+    cachefile.write("    sources: ["+layername+"_cache]\n")
+
+cachefile.write("""  - name: LMI_Kort
+    title: Base map, Landmaelingar Islands
+    sources: [lmi_cache]
+""")
+cachefile.write("caches:\n")
+
+for layer in layers:
+    tiledir = layer[0]
+    extent = layer[1]
+    shapefile = layer[2]
+    layername = path.basename(path.normpath(tiledir))
+    
+    cachefile.write("  "+layername+"_cache:\n")
+    cachefile.write("    grids: [webmercator_LMI]\n")
+    cachefile.write("    sources: ["+layername+"_wms]\n")
+
+cachefile.write("""  lmi_cache:
+    grids: [webmercator_LMI]
+    sources: [lmi_wms]
+""")
+
+cachefile.write("sources:\n")
+
+for layer in layers:
+    tiledir = layer[0]
+    extent = layer[1]
+    shapefile = layer[2]
+    layername = path.basename(path.normpath(tiledir))
+    
+    cachefile.write("  "+layername+"_wms:\n")
+    cachefile.write("    type: mapserver\n")
+    cachefile.write("    req:\n")
+    cachefile.write("      map: /var/www/is.icecaves.map/mapfiles/combined.map\n")
+    cachefile.write("      layers: "+layername+"\n")
+    cachefile.write("      transparent: true\n")
+    cachefile.write("    mapserver:\n")
+    cachefile.write("      binary: /usr/bin/mapserv\n")
+    cachefile.write("      working_dir: /var/www/is.icecaves.map/mapfiles\n")
+
+cachefile.write("""  lmi_wms:
+    type: wms
+    req:
+      url: https://gis.lmi.is/geoserver/ows?SERVICE=WMS&
+      layers: LMI_Kort
+    wms_opts:
+      version: 1.3.0
+    http:
+      ssl_no_cert_checks: true
+      
+grids:
+  webmercator:
+    base: GLOBAL_WEBMERCATOR
+  webmercator_AN:
+    base: GLOBAL_WEBMERCATOR
+    bbox: [-1814636.9, 9372199.8, -1813440.3, 9373544.1]
+  webmercator_TI:
+    base: GLOBAL_WEBMERCATOR
+#        bbox: [-1850000.000, 9365000.000, -1750000.000, 9385000.000]
+    origin: sw
+#        bbox_srs: EPSG:3857
+  webmercator_LMI:
+    base: GLOBAL_WEBMERCATOR
+    bbox: [-2056587.0588, 9101168.695, -1146597.0, 9844459.7153]
+    bbox_srs: EPSG:3857
+
+globals:  
+""")
+cachefile.close()
+
 print("🦊 all done!")
