@@ -115,7 +115,7 @@ import('ol').then(_ => {
       var layer = new Tile({
         opacity: 1,
         source: source,
-        type: 'base',
+        type: 'overlay',
         title: ogl["title"],
         visible:false,
         extent: ogl["extent"]
