@@ -46,6 +46,7 @@ for(var map of maps) {
 }
 
 module.exports = {
+  mode: 'development',
   entry: {
     main: './js/builder.js',
   },
@@ -62,7 +63,8 @@ module.exports = {
     hot: true,
     port: 8090,
     bonjour: true,
-    disableHostCheck: true
+    static: ['.']
+    //disableHostCheck: true
   },
   module: {
     rules: [
