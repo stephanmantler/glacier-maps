@@ -14,594 +14,734 @@ services:
       abstract: WMS/WMTS cache owned and operated by Hafjall ehf.
 
 layers:
-  - name: anakonda
-    title: Anakonda, March 17 2018
-    sources: [anakonda_20180317_cache]
-  - name: anakonda_dsm
-    title: Anakonda, March 17 2018 (dsm)
-    sources: [anakonda_20180317_dsm_cache]
-    
+  - name: 20200209_treasure_hillshade
+    title: 20200209_treasure_hillshade
+    sources: [20200209_treasure_hillshade_cache]
+  - name: 20210224_throng_dsm
+    title: 20210224_throng_dsm
+    sources: [20210224_throng_dsm_cache]
+  - name: 20210224_throng_hillshade
+    title: 20210224_throng_hillshade
+    sources: [20210224_throng_hillshade_cache]
+  - name: 20210224_throng_ortho
+    title: 20210224_throng_ortho
+    sources: [20210224_throng_ortho_cache]
+  - name: 20210505_throng_dsm
+    title: 20210505_throng_dsm
+    sources: [20210505_throng_dsm_cache]
+  - name: 20210505_throng_hillshade
+    title: 20210505_throng_hillshade
+    sources: [20210505_throng_hillshade_cache]
+  - name: 20210505_throng_ortho
+    title: 20210505_throng_ortho
+    sources: [20210505_throng_ortho_cache]
+  - name: 20210917_skalafellsjokull_dsm
+    title: 20210917_skalafellsjokull_dsm
+    sources: [20210917_skalafellsjokull_dsm_cache]
+  - name: 20210917_skalafellsjokull_hillshade
+    title: 20210917_skalafellsjokull_hillshade
+    sources: [20210917_skalafellsjokull_hillshade_cache]
+  - name: 20210917_skalafellsjokull_ortho
+    title: 20210917_skalafellsjokull_ortho
+    sources: [20210917_skalafellsjokull_ortho_cache]
+  - name: 20211008_throng_dsm
+    title: 20211008_throng_dsm
+    sources: [20211008_throng_dsm_cache]
+  - name: 20211008_throng_hillshade
+    title: 20211008_throng_hillshade
+    sources: [20211008_throng_hillshade_cache]
+  - name: 20211008_throng_ortho
+    title: 20211008_throng_ortho
+    sources: [20211008_throng_ortho_cache]
+  - name: anakonda_20180317_3857_tiles_jpeg
+    title: anakonda_20180317_3857_tiles_jpeg
+    sources: [anakonda_20180317_3857_tiles_jpeg_cache]
+  - name: crystal_20191008
+    title: crystal_20191008
+    sources: [crystal_20191008_cache]
   - name: dynjandi_20201104
-    title: Dynjandi, Nov 4 2020
+    title: dynjandi_20201104
     sources: [dynjandi_20201104_cache]
-
-  - name: flaajokull_20181114
-    title: Fláajökull, Nov 14 2018
+  - name: dynjandi_20210217
+    title: dynjandi_20210217
+    sources: [dynjandi_20210217_cache]
+  - name: flaa_20181114
+    title: flaa_20181114
     sources: [flaa_20181114_cache]
-
+  - name: heinaberg_20180531_3857_tiles_jpeg
+    title: heinaberg_20180531_3857_tiles_jpeg
+    sources: [heinaberg_20180531_3857_tiles_jpeg_cache]
+  - name: heinaberg_20180719_tiles
+    title: heinaberg_20180719_tiles
+    sources: [heinaberg_20180719_tiles_cache]
   - name: throng_20201107
-    title: Þröng, Nov 7 2020
+    title: throng_20201107
     sources: [throng_20201107_cache]
-
   - name: throng_20201107_relief
-    title: Þröng, Nov 7 2020 (relief)
+    title: throng_20201107_relief
     sources: [throng_20201107_relief_cache]
-
-  - name: treasure_20180401
-    title: Treasure Island, Apr 1 28 2018
-    sources: [treasure_20180401_cache]
-
-  - name: treasure_20180228
-    title: Treasure Island, Feb 28 2018
-    sources: [treasure_20180228_cache]
-  - name: treasure_20180228_dsm
-    title: Treasure Island, Feb 28 2018 (dsm)
-    sources: [treasure_20180228_dsm_cache]
-
-  - name: treasure_20180604
-    title: Treasure Island, Jun 4 2018
-    sources: [treasure_20180604_cache]
-
-  - name: treasure_20180713
-    title: Treasure Island, Jul 13 2018
-    sources: [treasure_20180713_cache]
-
-  - name: treasure_20180802
-    title: Treasure Island, Aug 2 2018
-    sources: [treasure_20180802_cache]
-
+  - name: throng_20210224
+    title: throng_20210224
+    sources: [throng_20210224_cache]
+  - name: treasure_20171211_3857_tiles_jpeg
+    title: treasure_20171211_3857_tiles_jpeg
+    sources: [treasure_20171211_3857_tiles_jpeg_cache]
+  - name: treasure_20180228_3857_tiles_jpeg
+    title: treasure_20180228_3857_tiles_jpeg
+    sources: [treasure_20180228_3857_tiles_jpeg_cache]
+  - name: treasure_20180401_3857_tiles_jpeg
+    title: treasure_20180401_3857_tiles_jpeg
+    sources: [treasure_20180401_3857_tiles_jpeg_cache]
+  - name: treasure_20180604_3857_tiles_jpeg
+    title: treasure_20180604_3857_tiles_jpeg
+    sources: [treasure_20180604_3857_tiles_jpeg_cache]
+  - name: treasure_20180713_3857_tiles_jpeg
+    title: treasure_20180713_3857_tiles_jpeg
+    sources: [treasure_20180713_3857_tiles_jpeg_cache]
+  - name: treasure_20180802_3857_tiles_jpeg
+    title: treasure_20180802_3857_tiles_jpeg
+    sources: [treasure_20180802_3857_tiles_jpeg_cache]
   - name: treasure_20181101
-    title: Treasure Island, Nov 1 2018
+    title: treasure_20181101
     sources: [treasure_20181101_cache]
-
   - name: treasure_20181122
-    title: Treasure Island, Nov 22 2018
+    title: treasure_20181122
     sources: [treasure_20181122_cache]
-
+  - name: treasure_20181220
+    title: treasure_20181220
+    sources: [treasure_20181220_cache]
   - name: treasure_20181221
-    title: Treasure Island, Dec 20 2018 (partial)
+    title: treasure_20181221
     sources: [treasure_20181221_cache]
-
   - name: treasure_20190124
-    title: Treasure Island, Jan 24 2019
+    title: treasure_20190124
     sources: [treasure_20190124_cache]
-
   - name: treasure_20190224
-    title: Treasure Island, Feb 24 2019
+    title: treasure_20190224
     sources: [treasure_20190224_cache]
-
   - name: treasure_20190321
-    title: Treasure Island, Mar 21 2019
+    title: treasure_20190321
     sources: [treasure_20190321_cache]
-
   - name: treasure_20190601
-    title: Treasure Island, Jun 1 2019
+    title: treasure_20190601
     sources: [treasure_20190601_cache]
-
   - name: treasure_20190601_relief
-    title: Treasure Island, Jun 1 2019 (relief)
+    title: treasure_20190601_relief
     sources: [treasure_20190601_relief_cache]
-
   - name: treasure_20190707
-    title: Treasure Island, Jul 7 2019
+    title: treasure_20190707
     sources: [treasure_20190707_cache]
-
   - name: treasure_20190707_relief
-    title: Treasure Island, Jul 7 2019 (relief)
+    title: treasure_20190707_relief
     sources: [treasure_20190707_relief_cache]
-
   - name: treasure_20190906
-    title: Treasure Island, Sep 6 2019
+    title: treasure_20190906
     sources: [treasure_20190906_cache]
-
   - name: treasure_20190906_relief
-    title: Treasure Island, Sep 6 2019 (relief)
+    title: treasure_20190906_relief
     sources: [treasure_20190906_relief_cache]
-
   - name: treasure_20191223
-    title: Treasure Island, Dec 23 2019
+    title: treasure_20191223
     sources: [treasure_20191223_cache]
-
+  - name: treasure_20191223_relief
+    title: treasure_20191223_relief
+    sources: [treasure_20191223_relief_cache]
   - name: treasure_20200209
-    title: Treasure Island, Feb 9 2020
+    title: treasure_20200209
     sources: [treasure_20200209_cache]
-
   - name: treasure_20200506
-    title: Treasure Island, May 6 2020
+    title: treasure_20200506
     sources: [treasure_20200506_cache]
-
   - name: treasure_20201107
-    title: Treasure Island, November 7 2020
+    title: treasure_20201107
     sources: [treasure_20201107_cache]
-
   - name: treasure_20201107_relief
-    title: Treasure Island, November 7 2020 (relief)
+    title: treasure_20201107_relief
     sources: [treasure_20201107_relief_cache]
-
-  - name: heinaberg_20180531
-    title: Heinabergslon, May 31
-    sources: [heinaberg_20180531_cache]
-  - name: heinaberg_20180719
-    title: Heinabergslon, July 19
-    sources: [heinaberg_20180719_cache]
-
-  - name: treasure_20171211
-    title: Treasure Island, Dec 11 2017
-    sources: [treasure_20171211_cache]
   - name: LMI_Kort
     title: Base map, Landmaelingar Islands
     sources: [lmi_cache]
-
 caches:
-  anakonda_20180317_cache:
-    grids: [webmercator_AN]
-    sources: [anakonda_20180317_wms]
-  anakonda_20180317_dsm_cache:
-    grids: [webmercator_AN]
-    sources: [anakonda_20180317_dsm_wms]
-
+  20200209_treasure_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20200209_treasure_hillshade_wms]
+  20210224_throng_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20210224_throng_dsm_wms]
+  20210224_throng_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20210224_throng_hillshade_wms]
+  20210224_throng_ortho_cache:
+    grids: [webmercator_LMI]
+    sources: [20210224_throng_ortho_wms]
+  20210505_throng_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20210505_throng_dsm_wms]
+  20210505_throng_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20210505_throng_hillshade_wms]
+  20210505_throng_ortho_cache:
+    grids: [webmercator_LMI]
+    sources: [20210505_throng_ortho_wms]
+  20210917_skalafellsjokull_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20210917_skalafellsjokull_dsm_wms]
+  20210917_skalafellsjokull_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20210917_skalafellsjokull_hillshade_wms]
+  20210917_skalafellsjokull_ortho_cache:
+    grids: [webmercator_LMI]
+    sources: [20210917_skalafellsjokull_ortho_wms]
+  20211008_throng_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20211008_throng_dsm_wms]
+  20211008_throng_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20211008_throng_hillshade_wms]
+  20211008_throng_ortho_cache:
+    grids: [webmercator_LMI]
+    sources: [20211008_throng_ortho_wms]
+  anakonda_20180317_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [anakonda_20180317_3857_tiles_jpeg_wms]
+  crystal_20191008_cache:
+    grids: [webmercator_LMI]
+    sources: [crystal_20191008_wms]
   dynjandi_20201104_cache:
     grids: [webmercator_LMI]
     sources: [dynjandi_20201104_wms]
-
+  dynjandi_20210217_cache:
+    grids: [webmercator_LMI]
+    sources: [dynjandi_20210217_wms]
   flaa_20181114_cache:
     grids: [webmercator_LMI]
     sources: [flaa_20181114_wms]
-
+  heinaberg_20180531_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [heinaberg_20180531_3857_tiles_jpeg_wms]
+  heinaberg_20180719_tiles_cache:
+    grids: [webmercator_LMI]
+    sources: [heinaberg_20180719_tiles_wms]
   throng_20201107_cache:
     grids: [webmercator_LMI]
     sources: [throng_20201107_wms]
-
   throng_20201107_relief_cache:
     grids: [webmercator_LMI]
     sources: [throng_20201107_relief_wms]
-
-  treasure_20180401_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180401_wms]
-
-  treasure_20180713_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180713_wms]
-
-  treasure_20180802_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180802_wms]
-
+  throng_20210224_cache:
+    grids: [webmercator_LMI]
+    sources: [throng_20210224_wms]
+  treasure_20171211_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20171211_3857_tiles_jpeg_wms]
+  treasure_20180228_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180228_3857_tiles_jpeg_wms]
+  treasure_20180401_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180401_3857_tiles_jpeg_wms]
+  treasure_20180604_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180604_3857_tiles_jpeg_wms]
+  treasure_20180713_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180713_3857_tiles_jpeg_wms]
+  treasure_20180802_3857_tiles_jpeg_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20180802_3857_tiles_jpeg_wms]
   treasure_20181101_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20181101_wms]
-
   treasure_20181122_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20181122_wms]
-
+  treasure_20181220_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20181220_wms]
   treasure_20181221_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20181221_wms]
-
   treasure_20190124_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190124_wms]
-
   treasure_20190224_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190224_wms]
-
   treasure_20190321_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190321_wms]
-
   treasure_20190601_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190601_wms]
-
   treasure_20190601_relief_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190601_relief_wms]
-
   treasure_20190707_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190707_wms]
-
   treasure_20190707_relief_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190707_relief_wms]
-
   treasure_20190906_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190906_wms]
-
   treasure_20190906_relief_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20190906_relief_wms]
-
   treasure_20191223_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20191223_wms]
-
+  treasure_20191223_relief_cache:
+    grids: [webmercator_LMI]
+    sources: [treasure_20191223_relief_wms]
   treasure_20200209_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20200209_wms]
-
   treasure_20200506_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20200506_wms]
-
   treasure_20201107_cache:
     grids: [webmercator_LMI]
     sources: [treasure_20201107_wms]
-
   treasure_20201107_relief_cache:
-    grids: [webmercator_TI]
+    grids: [webmercator_LMI]
     sources: [treasure_20201107_relief_wms]
-
-  treasure_20180604_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180604_wms]
-
-  heinaberg_20180531_cache:
-    grids: [webmercator_LMI]
-    sources: [heinaberg_20180531_wms]
-  heinaberg_20180719_cache:
-    grids: [webmercator_LMI]
-    sources: [heinaberg_20180719_wms]
-
-  treasure_20180228_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180228_wms]
-  treasure_20180228_dsm_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20180228_dsm_wms]
-  treasure_20171211_cache:
-    grids: [webmercator_TI]
-    sources: [treasure_20171211_wms]
-
   lmi_cache:
     grids: [webmercator_LMI]
     sources: [lmi_wms]
-
 sources:
-  anakonda_20180317_wms:
+  20200209_treasure_hillshade_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: anakonda_20180317
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20200209_treasure_hillshade
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  anakonda_20180317_dsm_wms:
+  20210224_throng_dsm_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: anakonda_20180317_dsm
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210224_throng_dsm
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
+  20210224_throng_hillshade_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210224_throng_hillshade
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210224_throng_ortho_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210224_throng_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210505_throng_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210505_throng_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210505_throng_hillshade_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210505_throng_hillshade
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210505_throng_ortho_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210505_throng_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210917_skalafellsjokull_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210917_skalafellsjokull_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210917_skalafellsjokull_hillshade_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210917_skalafellsjokull_hillshade
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20210917_skalafellsjokull_ortho_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20210917_skalafellsjokull_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20211008_throng_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20211008_throng_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20211008_throng_hillshade_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20211008_throng_hillshade
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20211008_throng_ortho_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20211008_throng_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  anakonda_20180317_3857_tiles_jpeg_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: anakonda_20180317_3857_tiles_jpeg
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  crystal_20191008_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: crystal_20191008
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
   dynjandi_20201104_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/dynjandi.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: dynjandi_20201104
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  flaa_20181114_wms:
+  dynjandi_20210217_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/flaa.map
-      layers: flaajokull_20181114
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: dynjandi_20210217
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
+  flaa_20181114_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: flaa_20181114
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  heinaberg_20180531_3857_tiles_jpeg_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: heinaberg_20180531_3857_tiles_jpeg
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  heinaberg_20180719_tiles_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: heinaberg_20180719_tiles
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
   throng_20201107_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/throng.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: throng_20201107
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   throng_20201107_relief_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/throng.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: throng_20201107_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180401_wms:
+  throng_20210224_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180401
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: throng_20210224
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180401_relief_wms:
+  treasure_20171211_3857_tiles_jpeg_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180401_relief
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20171211_3857_tiles_jpeg
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  heinaberg_20180531_wms:
+  treasure_20180228_3857_tiles_jpeg_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: heinaberg_20180531
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20180228_3857_tiles_jpeg
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  heinaberg_20180719_wms:
+  treasure_20180401_3857_tiles_jpeg_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: heinaberg_20180719
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20180401_3857_tiles_jpeg
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180802_wms:
+  treasure_20180604_3857_tiles_jpeg_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180802
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20180604_3857_tiles_jpeg
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
+  treasure_20180713_3857_tiles_jpeg_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20180713_3857_tiles_jpeg
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  treasure_20180802_3857_tiles_jpeg_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20180802_3857_tiles_jpeg
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
   treasure_20181101_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20181101
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20181122_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20181122
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
+  treasure_20181220_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20181220
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
   treasure_20181221_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20181221
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190124_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190124
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190224_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190224
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190321_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190321
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190601_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190601
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190601_relief_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190601_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190707_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190707
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190707_relief_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190707_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190906_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190906
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20191223_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
-      layers: treasure_20191223
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20200209_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
-      layers: treasure_20200209
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20200506_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
-      layers: treasure_20200506
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20201107_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
-      layers: treasure_20201107
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20201107_relief_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
-      layers: treasure_20201107_relief
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-
   treasure_20190906_relief_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure2019.map
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: treasure_20190906_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180713_wms:
+  treasure_20191223_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180713
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20191223
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180604_wms:
+  treasure_20191223_relief_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180604
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20191223_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180228_wms:
+  treasure_20200209_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180228
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20200209
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20180228_dsm_wms:
+  treasure_20200506_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20180228_dsm
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20200506
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
-  treasure_20171211_wms:
+  treasure_20201107_wms:
     type: mapserver
     req:
-      map: /var/www/is.icecaves.map/mapfiles/treasure.map
-      layers: treasure_20171211
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20201107
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-
+  treasure_20201107_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: treasure_20201107_relief
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
   lmi_wms:
     type: wms
     req:
@@ -611,22 +751,21 @@ sources:
       version: 1.3.0
     http:
       ssl_no_cert_checks: true
-
+      
 grids:
-    webmercator:
-        base: GLOBAL_WEBMERCATOR
-    webmercator_AN:
-        base: GLOBAL_WEBMERCATOR
-        bbox: [-1814636.9, 9372199.8, -1813440.3, 9373544.1]
-    webmercator_TI:
-        base: GLOBAL_WEBMERCATOR
+  webmercator:
+    base: GLOBAL_WEBMERCATOR
+  webmercator_AN:
+    base: GLOBAL_WEBMERCATOR
+    bbox: [-1814636.9, 9372199.8, -1813440.3, 9373544.1]
+  webmercator_TI:
+    base: GLOBAL_WEBMERCATOR
 #        bbox: [-1850000.000, 9365000.000, -1750000.000, 9385000.000]
-        origin: sw
+    origin: sw
 #        bbox_srs: EPSG:3857
-    webmercator_LMI:
-        base: GLOBAL_WEBMERCATOR
-        bbox: [-2056587.0588, 9101168.695, -1146597.0, 9844459.7153]
-        bbox_srs: EPSG:3857
+  webmercator_LMI:
+    base: GLOBAL_WEBMERCATOR
+    bbox: [-2056587.0588, 9101168.695, -1146597.0, 9844459.7153]
+    bbox_srs: EPSG:3857
 
-
-globals:
+globals:  

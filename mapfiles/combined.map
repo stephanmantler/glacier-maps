@@ -1,0 +1,695 @@
+MAP
+  NAME "maps.stepman.is"
+  STATUS ON
+  SIZE 1000 1000
+  #EXTENT 439300 7109000 440100 7110200
+
+  IMAGETYPE png
+  UNITS DD
+
+  PROJECTION
+    "init=epsg:3857"
+  END #PROJECTION
+
+  WEB
+    IMAGEPATH "/var/www/is.icecaves.map/map_tmp"
+    IMAGEURL "/map_tmp/"
+    METADATA
+      'wms_enable_request' '*'
+      'wms_srs' 'EPSG:32628'
+      #'wms_srs' 'EPSG:32628 EPSG:4326 EPSG:3857'
+    END #METADATA
+  END #WEB
+
+  ## from /var/www/is.icecaves.map/mapdata/20200209_treasure_hillshade/ (via regen.py)
+  LAYER
+    NAME '20200209_treasure_hillshade'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810154.902 9377330.607 -1807552.052 9379015.459
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20200209_treasure_hillshade/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210224_throng_dsm/ (via regen.py)
+  LAYER
+    NAME '20210224_throng_dsm'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1806969.158 9378550.695 -1804685.316 9383766.807
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210224_throng_dsm/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210224_throng_hillshade/ (via regen.py)
+  LAYER
+    NAME '20210224_throng_hillshade'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1806969.158 9378550.695 -1804685.316 9383766.807
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210224_throng_hillshade/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210224_throng_ortho/ (via regen.py)
+  LAYER
+    NAME '20210224_throng_ortho'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1806969.158 9378550.407 -1804685.324 9383766.807
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210224_throng_ortho/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210505_throng_dsm/ (via regen.py)
+  LAYER
+    NAME '20210505_throng_dsm'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810291.000 9377382.804 -1805486.164 9380262.000
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210505_throng_dsm/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210505_throng_hillshade/ (via regen.py)
+  LAYER
+    NAME '20210505_throng_hillshade'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810291.000 9377382.804 -1805486.164 9380262.000
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210505_throng_hillshade/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210505_throng_ortho/ (via regen.py)
+  LAYER
+    NAME '20210505_throng_ortho'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810291.000 9377382.557 -1805485.431 9380262.000
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210505_throng_ortho/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_dsm/ (via regen.py)
+  LAYER
+    NAME '20210917_skalafellsjokull_dsm'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1773645.749 9416114.123 -1772928.113 9416782.108
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_dsm/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_hillshade/ (via regen.py)
+  LAYER
+    NAME '20210917_skalafellsjokull_hillshade'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1773645.749 9416114.123 -1772928.113 9416782.108
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_hillshade/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_ortho/ (via regen.py)
+  LAYER
+    NAME '20210917_skalafellsjokull_ortho'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1773645.749 9416114.102 -1772927.957 9416782.108
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20210917_skalafellsjokull_ortho/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20211008_throng_dsm/ (via regen.py)
+  LAYER
+    NAME '20211008_throng_dsm'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809645.555 9377621.077 -1805038.882 9382982.951
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20211008_throng_dsm/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20211008_throng_hillshade/ (via regen.py)
+  LAYER
+    NAME '20211008_throng_hillshade'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809645.555 9377621.077 -1805038.882 9382982.951
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20211008_throng_hillshade/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/20211008_throng_ortho/ (via regen.py)
+  LAYER
+    NAME '20211008_throng_ortho'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809645.555 9377620.891 -1805038.860 9382982.951
+    TILEINDEX /var/www/is.icecaves.map/mapdata/20211008_throng_ortho/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/anakonda_20180317_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'anakonda_20180317_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1814636.983 9372199.902 -1813440.260 9373544.039
+    TILEINDEX /var/www/is.icecaves.map/mapdata/anakonda_20180317_3857_tiles_jpeg/anakonda_20180317_tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/crystal_20191008/ (via regen.py)
+  LAYER
+    NAME 'crystal_20191008'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1820376.034 9371976.004 -1817125.327 9374564.838
+    TILEINDEX /var/www/is.icecaves.map/mapdata/crystal_20191008/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/dynjandi_20201104/ (via regen.py)
+  LAYER
+    NAME 'dynjandi_20201104'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1683840.770 9423845.328 -1679336.669 9426590.081
+    TILEINDEX /var/www/is.icecaves.map/mapdata/dynjandi_20201104/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/dynjandi_20210217/ (via regen.py)
+  LAYER
+    NAME 'dynjandi_20210217'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1682408.595 9424825.857 -1681578.127 9425564.772
+    TILEINDEX /var/www/is.icecaves.map/mapdata/dynjandi_20210217/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/flaa_20181114/ (via regen.py)
+  LAYER
+    NAME 'flaa_20181114'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1738999.790 9433457.273 -1737593.749 9434980.388
+    TILEINDEX /var/www/is.icecaves.map/mapdata/flaa_20181114/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/heinaberg_20180531_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'heinaberg_20180531_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1749372.106 9423958.437 -1742823.105 9427937.081
+    TILEINDEX /var/www/is.icecaves.map/mapdata/heinaberg_20180531_3857_tiles_jpeg/heinaberg_20180531_tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/heinaberg_20180719_tiles/ (via regen.py)
+  LAYER
+    NAME 'heinaberg_20180719_tiles'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1752083.772 9424031.815 -1744274.577 9427662.607
+    TILEINDEX /var/www/is.icecaves.map/mapdata/heinaberg_20180719_tiles/heinaberg_20180719.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/throng_20201107/ (via regen.py)
+  LAYER
+    NAME 'throng_20201107'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1806005.304 9381789.819 -1804525.445 9383676.168
+    TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20201107/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/throng_20201107_relief/ (via regen.py)
+  LAYER
+    NAME 'throng_20201107_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1806005.076 9381789.965 -1804525.639 9383676.081
+    TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20201107_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/throng_20210224/ (via regen.py)
+  LAYER
+    NAME 'throng_20210224'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809285.652 9377512.431 -1804685.361 9383766.807
+    TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20210224/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20171211_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20171211_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1807519.312 9377719.331 -1807152.628 9378027.591
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20171211_3857_tiles_jpeg/treasure_20171211_tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20180228_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20180228_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1808314.163 9377218.672 -1806829.430 9378488.433
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20180228_3857_tiles_jpeg/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20180401_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20180401_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809283.127 9376979.716 -1806849.970 9378631.077
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20180401_3857_tiles_jpeg/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20180604_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20180604_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810035.813 9377099.447 -1806825.132 9378942.309
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20180604_3857_tiles_jpeg/treasure_20180604_tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20180713_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20180713_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809304.555 9377281.594 -1806845.776 9378852.344
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20180713_3857_tiles_jpeg/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20180802_3857_tiles_jpeg/ (via regen.py)
+  LAYER
+    NAME 'treasure_20180802_3857_tiles_jpeg'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809421.478 9377079.907 -1806666.316 9378798.001
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20180802_3857_tiles_jpeg/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20181101/ (via regen.py)
+  LAYER
+    NAME 'treasure_20181101'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809035.814 9377317.855 -1806513.539 9378388.807
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20181101/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20181122/ (via regen.py)
+  LAYER
+    NAME 'treasure_20181122'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809119.928 9377223.438 -1805971.983 9378762.046
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20181122/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20181220/ (via regen.py)
+  LAYER
+    NAME 'treasure_20181220'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1807794.257 9377877.301 -1807113.030 9378512.477
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20181220/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20181221/ (via regen.py)
+  LAYER
+    NAME 'treasure_20181221'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809024.808 9377170.800 -1806497.515 9378733.064
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20181221/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190124/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190124'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809046.125 9377234.250 -1806515.233 9378677.327
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190124/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190224/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190224'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809080.226 9377163.681 -1806477.144 9378915.457
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190224/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190321/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190321'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809313.620 9377152.054 -1806558.164 9378938.489
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190321/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190601/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190601'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809894.392 9376929.282 -1806459.414 9378960.869
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190601/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190601_relief/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190601_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809894.392 9376929.342 -1806459.478 9378960.869
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190601_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190707/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190707'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1808475.116 9377214.582 -1806371.534 9378981.897
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190707/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190707_relief/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190707_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1808475.116 9377214.482 -1806371.643 9378981.897
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190707_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190906/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190906'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809938.351 9376851.379 -1806443.031 9378953.385
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190906/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20190906_relief/ (via regen.py)
+  LAYER
+    NAME 'treasure_20190906_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809938.351 9376851.412 -1806443.127 9378953.385
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20190906_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20191223/ (via regen.py)
+  LAYER
+    NAME 'treasure_20191223'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809934.415 9376960.661 -1806829.673 9378924.479
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20191223/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20191223_relief/ (via regen.py)
+  LAYER
+    NAME 'treasure_20191223_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1809934.415 9376960.785 -1806829.568 9378924.479
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20191223_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20200209/ (via regen.py)
+  LAYER
+    NAME 'treasure_20200209'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810087.423 9377326.611 -1807552.841 9379016.180
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20200209/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20200506/ (via regen.py)
+  LAYER
+    NAME 'treasure_20200506'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810095.520 9377381.010 -1808045.942 9378956.166
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20200506/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20201107/ (via regen.py)
+  LAYER
+    NAME 'treasure_20201107'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810295.036 9377350.270 -1806693.849 9379285.310
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20201107/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+
+  ## from /var/www/is.icecaves.map/mapdata/treasure_20201107_relief/ (via regen.py)
+  LAYER
+    NAME 'treasure_20201107_relief'
+    TYPE RASTER
+    STATUS ON
+    EXTENT -1810294.822 9377350.735 -1806693.700 9379285.119
+    TILEINDEX /var/www/is.icecaves.map/mapdata/treasure_20201107_relief/tileIndex.shp
+    TILEITEM 'LOCATION'
+    PROCESSING 'RESAMPLE=AVERAGE'
+    PROJECTION
+      'init=epsg:3857'
+    END
+  END #LAYER
+END #MAP

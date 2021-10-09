@@ -50,5 +50,19 @@ LAYER
   END
 END
 
+# from /var/www/is.icecaves.map/mapdata/throng_20210224/ (via regen.py)
+LAYER
+  NAME 'throng_20210224'
+  TYPE RASTER
+  STATUS ON
+  EXTENT -1809285.652 9377512.431 -1804685.361 9383766.807
+  TILEINDEX /var/www/is.icecaves.map/mapdata/throng_20210224/tileIndex.shp
+  TILEITEM 'LOCATION'
+  PROCESSING 'RESAMPLE=AVERAGE'
+  PROJECTION
+    'init=epsg:3857'
+  END
+END
+
 #####
 END #MAP
