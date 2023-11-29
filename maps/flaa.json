@@ -4,19 +4,19 @@
     "Relief Maps" : [
       {
         "layername": "flaa_20231125_relief",
-        "title": "Fláajökull (lower), 2023-11-25",
+        "title": "Fláajökull (south), 2023-11-25",
         "extent": [-1737226.795, 9432652.738, -1736634.481, 9433294.248]
       }
     ],
     "Orthophotos" : [
       {
         "layername": "flaa_20181114",
-        "title": "Fláajökull (upper), 2018-11-14",
+        "title": "Fláajökull (north), 2018-11-14",
         "extent": [-1738999.790, 9433457.273, -1737593.749, 9434980.388]
       },
       {
         "layername": "flaa_20231125",
-        "title": "Fláajökull (lower), 2023-11-25",
+        "title": "Fláajökull (south), 2023-11-25",
         "extent": [-1737226.795, 9432652.613, -1736634.378, 9433294.248]
       }
     ]
