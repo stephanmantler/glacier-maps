@@ -1,37 +1,7 @@
 {
-  "title": "Treasure Island – Breiðamerkurjökull / Jökulsárlón",
+  "title": "Eastern Breiðamerkurjökull",
   "layers": {
-    "Treasure Island - Relief Maps" : [
-      {
-        "layername": "treasure_20190601_relief",
-        "title": "2019-06-01",
-        "extent": [-1809895, 9376929, -1806450, 9378960 ]
-      }, {
-        "layername": "treasure_20190707_relief",
-        "title": "2019-07-07",
-        "extent": [-1809895, 9376929, -1806450, 9378960 ]
-      }, {
-        "layername": "treasure_20190906_relief",
-        "title":"2019-09-06",
-        "extent": [-1809895, 9376929, -1806450, 9378960 ]
-      }, {
-        "layername": "treasure_20201107_relief",
-        "title":"2020-11-07",
-        "extent": [-1810100, 9377300, -1806450, 9379055 ]
-      },
-      {
-        "layername": "20210224_throng_hillshade",
-        "title": "2021-02-24",
-        "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
-      },
-      {
-        "layername": "20211008_throng_hillshade",
-        "title": "2021-10-08",
-        "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
-      }
-
-    ],
-    "Treasure Island - Orthophotos" : [
+    "Orthophotos" : [
       {
         "layername": "treasure_20171211_3857_tiles_jpeg",
         "title": "2017-12-11",
@@ -119,7 +89,35 @@
         "title": "2021-10-08",
         "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
       }
-    ]
-    
+    ],
+    "Relief Maps" : [
+      {
+        "layername": "treasure_20190601_relief",
+        "title": "2019-06-01",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190707_relief",
+        "title": "2019-07-07",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20190906_relief",
+        "title":"2019-09-06",
+        "extent": [-1809895, 9376929, -1806450, 9378960 ]
+      }, {
+        "layername": "treasure_20201107_relief",
+        "title":"2020-11-07",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
+      },
+      {
+        "layername": "20210224_throng_hillshade",
+        "title": "2021-02-24",
+        "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
+      },
+      {
+        "layername": "20211008_throng_hillshade",
+        "title": "2021-10-08",
+        "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
+      }
+    ]    
   }
 }

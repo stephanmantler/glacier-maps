@@ -47,12 +47,21 @@ layers:
   - name: 20211008_throng_dsm
     title: 20211008_throng_dsm
     sources: [20211008_throng_dsm_cache]
-  - name: 20211008_throng_hillshade
-    title: 20211008_throng_hillshade
-    sources: [20211008_throng_hillshade_cache]
   - name: 20211008_throng_ortho
     title: 20211008_throng_ortho
     sources: [20211008_throng_ortho_cache]
+  - name: 20220218_treasure_dsm
+    title: 20220218_treasure_dsm
+    sources: [20220218_treasure_dsm_cache]
+  - name: 20220218_treasure_hillshade
+    title: 20220218_treasure_hillshade
+    sources: [20220218_treasure_hillshade_cache]
+  - name: 20220218_treasure_ortho
+    title: 20220218_treasure_ortho
+    sources: [20220218_treasure_ortho_cache]
+  - name: 20231125_flaa_dsm
+    title: 20231125_flaa_dsm
+    sources: [20231125_flaa_dsm_cache]
   - name: anakonda_20180317_3857_tiles_jpeg
     title: anakonda_20180317_3857_tiles_jpeg
     sources: [anakonda_20180317_3857_tiles_jpeg_cache]
@@ -68,6 +77,12 @@ layers:
   - name: flaa_20181114
     title: flaa_20181114
     sources: [flaa_20181114_cache]
+  - name: flaa_20231125
+    title: flaa_20231125
+    sources: [flaa_20231125_cache]
+  - name: flaa_20231125_relief
+    title: flaa_20231125_relief
+    sources: [flaa_20231125_relief_cache]
   - name: heinaberg_20180531_3857_tiles_jpeg
     title: heinaberg_20180531_3857_tiles_jpeg
     sources: [heinaberg_20180531_3857_tiles_jpeg_cache]
@@ -122,12 +137,6 @@ layers:
   - name: treasure_20190321
     title: treasure_20190321
     sources: [treasure_20190321_cache]
-  - name: treasure_20190601
-    title: treasure_20190601
-    sources: [treasure_20190601_cache]
-  - name: treasure_20190601_relief
-    title: treasure_20190601_relief
-    sources: [treasure_20190601_relief_cache]
   - name: treasure_20190707
     title: treasure_20190707
     sources: [treasure_20190707_cache]
@@ -161,6 +170,9 @@ layers:
   - name: LMI_Kort
     title: Base map, Landmaelingar Islands
     sources: [lmi_cache]
+  - name: LMI_DEM
+    title: IslandsDEM, Landmaelingar Islands
+    sources: [lmi_dem_cache]
 caches:
   20200209_treasure_hillshade_cache:
     grids: [webmercator_LMI]
@@ -195,12 +207,21 @@ caches:
   20211008_throng_dsm_cache:
     grids: [webmercator_LMI]
     sources: [20211008_throng_dsm_wms]
-  20211008_throng_hillshade_cache:
-    grids: [webmercator_LMI]
-    sources: [20211008_throng_hillshade_wms]
   20211008_throng_ortho_cache:
     grids: [webmercator_LMI]
     sources: [20211008_throng_ortho_wms]
+  20220218_treasure_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20220218_treasure_dsm_wms]
+  20220218_treasure_hillshade_cache:
+    grids: [webmercator_LMI]
+    sources: [20220218_treasure_hillshade_wms]
+  20220218_treasure_ortho_cache:
+    grids: [webmercator_LMI]
+    sources: [20220218_treasure_ortho_wms]
+  20231125_flaa_dsm_cache:
+    grids: [webmercator_LMI]
+    sources: [20231125_flaa_dsm_wms]
   anakonda_20180317_3857_tiles_jpeg_cache:
     grids: [webmercator_LMI]
     sources: [anakonda_20180317_3857_tiles_jpeg_wms]
@@ -216,6 +237,12 @@ caches:
   flaa_20181114_cache:
     grids: [webmercator_LMI]
     sources: [flaa_20181114_wms]
+  flaa_20231125_cache:
+    grids: [webmercator_LMI]
+    sources: [flaa_20231125_wms]
+  flaa_20231125_relief_cache:
+    grids: [webmercator_LMI]
+    sources: [flaa_20231125_relief_wms]
   heinaberg_20180531_3857_tiles_jpeg_cache:
     grids: [webmercator_LMI]
     sources: [heinaberg_20180531_3857_tiles_jpeg_wms]
@@ -270,12 +297,6 @@ caches:
   treasure_20190321_cache:
     grids: [webmercator_LMI]
     sources: [treasure_20190321_wms]
-  treasure_20190601_cache:
-    grids: [webmercator_LMI]
-    sources: [treasure_20190601_wms]
-  treasure_20190601_relief_cache:
-    grids: [webmercator_LMI]
-    sources: [treasure_20190601_relief_wms]
   treasure_20190707_cache:
     grids: [webmercator_LMI]
     sources: [treasure_20190707_wms]
@@ -309,6 +330,10 @@ caches:
   lmi_cache:
     grids: [webmercator_LMI]
     sources: [lmi_wms]
+  lmi_dem_cache:
+    format: image/jpeg
+    grids: [webmercator]
+    sources: [lmi_dem_wms]
 sources:
   20200209_treasure_hillshade_wms:
     type: mapserver
@@ -409,20 +434,47 @@ sources:
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-  20211008_throng_hillshade_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/combined.map
-      layers: 20211008_throng_hillshade
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
   20211008_throng_ortho_wms:
     type: mapserver
     req:
       map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: 20211008_throng_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20220218_treasure_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20220218_treasure_dsm
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20220218_treasure_hillshade_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20220218_treasure_hillshade
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20220218_treasure_ortho_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20220218_treasure_ortho
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  20231125_flaa_dsm_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: 20231125_flaa_dsm
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
@@ -468,6 +520,24 @@ sources:
     req:
       map: /var/www/is.icecaves.map/mapfiles/combined.map
       layers: flaa_20181114
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  flaa_20231125_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: flaa_20231125
+      transparent: true
+    mapserver:
+      binary: /usr/bin/mapserv
+      working_dir: /var/www/is.icecaves.map/mapfiles
+  flaa_20231125_relief_wms:
+    type: mapserver
+    req:
+      map: /var/www/is.icecaves.map/mapfiles/combined.map
+      layers: flaa_20231125_relief
       transparent: true
     mapserver:
       binary: /usr/bin/mapserv
@@ -634,24 +704,6 @@ sources:
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
-  treasure_20190601_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/combined.map
-      layers: treasure_20190601
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
-  treasure_20190601_relief_wms:
-    type: mapserver
-    req:
-      map: /var/www/is.icecaves.map/mapfiles/combined.map
-      layers: treasure_20190601_relief
-      transparent: true
-    mapserver:
-      binary: /usr/bin/mapserv
-      working_dir: /var/www/is.icecaves.map/mapfiles
   treasure_20190707_wms:
     type: mapserver
     req:
@@ -742,11 +794,23 @@ sources:
     mapserver:
       binary: /usr/bin/mapserv
       working_dir: /var/www/is.icecaves.map/mapfiles
+
   lmi_wms:
     type: wms
     req:
       url: https://gis.lmi.is/geoserver/ows?SERVICE=WMS&
       layers: LMI_Kort
+    wms_opts:
+      version: 1.3.0
+    http:
+      ssl_no_cert_checks: true
+      
+  lmi_dem_wms:
+    type: wms
+    supported_srs: [EPSG:3057]
+    req:
+      url: https://gis.lmi.is/mapcache/wms?SERVICE=wms&
+      layers: IslandsDEMDaylight
     wms_opts:
       version: 1.3.0
     http:

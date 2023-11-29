@@ -62,10 +62,16 @@ import('ol').then(_ => {
   function isMobile() { return mQuery.matches }
 
   function makeSource(layerName) {
+    console.log("making source for " + layerName);
+    
    var options = optionsFromCapabilities(caps, {
      layer: layerName,
      matrixSet: 'EPSG:3857'
   });
+  if(!options) {
+    console.log("construction failed.");
+    return null;
+  }
     var source = new WMTS(/** @type {!olx.source.WMTSOptions} */ (options));
 /*FXME
          source.on('tileloadstart', function() { progress.addLoading(); });
@@ -98,6 +104,7 @@ import('ol').then(_ => {
   /* eslint-enable no-undef */
   
   var layerGroups = []
+  var firstGroup = true
   for(var og in overlays) {
     var group = new Group({title: og, layers:[]})
     
@@ -108,6 +115,11 @@ import('ol').then(_ => {
     for(var k in overlays[og]) {
       var ogl = overlays[og][k];
       var source = makeSource(ogl["layername"]);
+      
+      if(!source) {
+        continue;
+      }
+      
       source.setAttributions(
         'glacier maps © <a href="http://www.stepman.is/">stepman</a>. '+
         '<a href="https://github.com/stephanmantler/glacier-maps/">Source on GitHub</a>.'
@@ -122,7 +134,9 @@ import('ol').then(_ => {
       })
       layer.on('change:visible', updateHomeExtents)
       // lazy way to remember the very last layer we've added
-      activeLayer = layer;
+      if(firstGroup) {
+       activeLayer = layer;
+      }
       group.getLayers().push(layer);
       layersByName[ogl['layername']] = layer
       
@@ -134,7 +148,8 @@ import('ol').then(_ => {
       // eslint-disable-next-line no-undef
       $(layerSelectList).val(ogl["layername"])
     }
-    layerGroups.push(group);
+    layerGroups.push(group)
+    firstGroup = false
   }
   
   

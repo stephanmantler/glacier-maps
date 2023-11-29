@@ -136,6 +136,10 @@ cachefile.write("""  - name: LMI_Kort
     title: Base map, Landmaelingar Islands
     sources: [lmi_cache]
 """)
+cachefile.write("""  - name: LMI_DEM
+    title: IslandsDEM, Landmaelingar Islands
+    sources: [lmi_dem_cache]
+""")
 cachefile.write("caches:\n")
 
 for layer in layers:
@@ -151,6 +155,12 @@ for layer in layers:
 cachefile.write("""  lmi_cache:
     grids: [webmercator_LMI]
     sources: [lmi_wms]
+""")
+
+cachefile.write("""  lmi_dem_cache:
+    format: image/jpeg
+    grids: [webmercator]
+    sources: [lmi_dem_wms]
 """)
 
 cachefile.write("sources:\n")
@@ -171,11 +181,23 @@ for layer in layers:
     cachefile.write("      binary: /usr/bin/mapserv\n")
     cachefile.write("      working_dir: /var/www/is.icecaves.map/mapfiles\n")
 
-cachefile.write("""  lmi_wms:
+cachefile.write("""
+  lmi_wms:
     type: wms
     req:
       url: https://gis.lmi.is/geoserver/ows?SERVICE=WMS&
       layers: LMI_Kort
+    wms_opts:
+      version: 1.3.0
+    http:
+      ssl_no_cert_checks: true
+      
+  lmi_dem_wms:
+    type: wms
+    supported_srs: [EPSG:3057]
+    req:
+      url: https://gis.lmi.is/mapcache/wms?SERVICE=wms&
+      layers: IslandsDEMDaylight
     wms_opts:
       version: 1.3.0
     http:
