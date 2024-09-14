@@ -20,6 +20,7 @@ import Style from 'ol/style/Style';
 import Stroke from 'ol/style/Stroke';
 //unused import Text from 'ol/style/Text';
 import Fill from 'ol/style/Fill';
+import FillPattern from 'ol-ext/style/FillPattern';
 import LayerSwitcher from 'ol-layerswitcher';
 
 //unused import Swipe from 'ol-ext/control/Swipe';
@@ -227,11 +228,32 @@ import('ol').then(_ => {
         width: 2
       })
     });
+    var style_conf5 = new Style({
+      fill: new FillPattern(
+      {
+          pattern: "hatch",
+          ratio: 1,
+          color: 'rgba(255,0,0,0.6)',
+          offset: 0,
+          scale: 2,
+          fill: new Fill({ color: "rgba(0, 0, 0, 0)" }),
+          size: 4,
+          spacing: 10,
+          angle: 45
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,0,0, 0.7',
+        width: 4
+      })
+    });
     
     function styleFunction(feature /*, resolution */) {
       var status = feature.get('status');
       if (status == '2') {
         return style_conf2;
+      }
+      if (status == '5') {
+        return style_conf5;
       }
       return style;
     }
