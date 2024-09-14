@@ -9,17 +9,16 @@
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.8.1",
-    "ejs": "^3.1.9",
-    "ejs-compiled-loader": "^3.1.0",
-    "eslint-plugin-html": "^6.2.0",
-    "glob": "^7.2.0",
-    "html-webpack-plugin": "^5.3.2",
-    "mini-css-extract-plugin": "^2.4.2",
-    "style-loader": "^3.3.0",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^4.11.1"
+    "css-loader": "^7.1.2",
+    "ejs": "^3.1.10",
+    "eslint-plugin-html": "^8.1.1",
+    "glob": "^11.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   },
   "repository": {
     "type": "git",
@@ -28,9 +27,11 @@
   "author": "stephan mantler",
   "license": "MIT",
   "dependencies": {
+    "compile-ejs-loader": "^0.0.3",
+    "ejs-webpack-loader": "^2.2.2",
     "jquery": "^3.7.1",
-    "ol": "^8.2.0",
-    "ol-ext": "^4.0.12",
-    "ol-layerswitcher": "^4.1.1"
+    "ol": "^10.1.0",
+    "ol-ext": "^4.0.23",
+    "ol-layerswitcher": "^4.1.2"
   }
 }

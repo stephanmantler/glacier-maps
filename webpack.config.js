@@ -71,7 +71,7 @@ module.exports = {
       {
         test: /\.ejs$/,
         use: {
-          loader: "ejs-compiled-loader",
+          loader: "compile-ejs-loader",
             options: {
               htmlmin: true,
               htmlminOptions: {
