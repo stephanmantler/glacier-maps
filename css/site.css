@@ -86,7 +86,7 @@ ul.layerlist {
     min-height: 0;
     padding: 0;
     flex: 1;
-    flex-grow: 1;
+    flex-grow: 1; 
 }
 #map-container {
     display: flex;
