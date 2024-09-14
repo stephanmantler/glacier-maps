@@ -8,7 +8,7 @@ from layertools import *
 def loadMapset(name):
   filename = path.join("maps", name+".json")
   if not path.exists(filename):
-    return {"title":"Untitled", "description":"", layers":{ "Orthophotos" : [], "Relief Maps": []}}
+    return {"title":"Untitled", "description":"", "layers":{ "Orthophotos" : [], "Relief Maps": []}}
   with open(filename, mode="r", encoding="utf-8") as fd:
     meta = json.load(fd)
   return meta
