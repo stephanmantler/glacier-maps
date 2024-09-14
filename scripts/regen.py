@@ -13,6 +13,11 @@ def loadMapset(name):
     meta = json.load(fd)
   return meta
   
+def saveMapset(name, mapset):
+  filename = path.join("maps", name+".json")
+  with open(filename, mode="w", encoding="utf-8") as fd:
+    json.dump(mapset, fd)
+  
 def categoryForLayer(tiledir):
   if tiledir.endswith("_ortho"):
     return "Orthophotos"
@@ -22,7 +27,7 @@ def categoryForLayer(tiledir):
     return "Relief Maps"
   raise ValueError(f"Cannot identify layer category for file name: {tiledir}")
 
-def addLayerToMapset(layer, mapsetname):
+def addLayerToMapset(layer, mapsetname, title):
   tiledir = path.basename(path.normpath(layer[0]))
   extent = layer[1]
     
@@ -34,7 +39,6 @@ def addLayerToMapset(layer, mapsetname):
     return
 
   # check if mapset already contains that layer
-  #for category in mapset["layers"]:
   for layerdef in mapset["layers"][category]:
     if layerdef["layername"] == tiledir:
       print("     ✅  already exists in %s" % mapsetname)
@@ -42,6 +46,12 @@ def addLayerToMapset(layer, mapsetname):
   
   # need to add and save mapset
   print("     🔰  adding to %s" % mapsetname)
+  mapset["layers"][category].append({
+    "layername": tiledir,
+    "title": title,
+    "extent": [ extent[0],extent[2],extent[1],extent[3] ]
+  })
+  saveMapset(mapsetname, mapset)
 
 def mergeMapDefinitions(metafiles, layers):
   print("💾 loading metadata")
@@ -55,7 +65,7 @@ def mergeMapDefinitions(metafiles, layers):
       if tiledir.startswith(meta["name"]):
         print("   -> %s" % (tiledir))
         for set in meta["mapsets"]:
-          addLayerToMapset(layer, set)
+          addLayerToMapset(layer, set, meta["title"])
 
 
 def runWebPack():
@@ -73,5 +83,5 @@ metafiles.sort()
 layers = readLayerDefs(tiledirs)
 writeCombinedMap(layers)
 mergeMapDefinitions(metafiles, layers)
-# runWebPack()
+runWebPack()
 print("🦊 all done!")
