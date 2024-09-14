@@ -8,7 +8,7 @@ from layertools import *
 def loadMapset(name):
   filename = path.join("maps", name+".json")
   if not path.exists(filename):
-    return {"title":"Untitled", "description":"", "layers":{ "Orthophotos" : [], "Relief Maps": []}}
+    return {"title":"Untitled", "description":"", "overlays": [], "layers":{ "Orthophotos" : [], "Relief Maps": []}}
   with open(filename, mode="r", encoding="utf-8") as fd:
     meta = json.load(fd)
   return meta
@@ -17,7 +17,7 @@ def loadMapset(name):
 def saveMapset(name, mapset):
   filename = path.join("maps", name+".json")
   with open(filename, mode="w", encoding="utf-8") as fd:
-    json.dump(mapset, fd)
+    json.dump(mapset, fd, indent=2)
 
 
 def categoryForLayer(tiledir):
@@ -30,7 +30,7 @@ def categoryForLayer(tiledir):
   raise ValueError(f"Cannot identify layer category for file name: {tiledir}")
 
 
-def addLayerToMapset(layer, mapsetname, title):
+def addLayerToMapset(layer, mapsetname, meta):
   tiledir = path.basename(path.normpath(layer[0]))
   extent = layer[1]
     
@@ -46,12 +46,17 @@ def addLayerToMapset(layer, mapsetname, title):
     if layerdef["layername"] == tiledir:
       print("     ✅  already exists in %s" % mapsetname)
       return
+      
+  description = ""
+  if "description" in meta:
+    description = meta["description"]      
   
   # need to add and save mapset
   print("     🔰  adding to %s" % mapsetname)
   mapset["layers"][category].append({
     "layername": tiledir,
-    "title": title,
+    "title": meta["title"],
+    "description": description,
     "extent": [ extent[0],extent[2],extent[1],extent[3] ]
   })
   saveMapset(mapsetname, mapset)
@@ -69,7 +74,7 @@ def mergeMapDefinitions(metafiles, layers):
       if tiledir.startswith(meta["name"]):
         print("   -> %s" % (tiledir))
         for set in meta["mapsets"]:
-          addLayerToMapset(layer, set, meta["title"])
+          addLayerToMapset(layer, set, meta)
 
 
 def runWebPack():

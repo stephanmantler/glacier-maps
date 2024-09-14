@@ -36,6 +36,7 @@ var attribution = new Attribution({
 });
 
 var overlays = {}
+var geojson = {}
 var ol;
 
 import('ol').then(_ => {
@@ -45,6 +46,7 @@ import('ol').then(_ => {
   return(data.json());
 }).then(function(jsondata) {
   overlays = jsondata.layers;
+  geojson = jsondata.overlays;
   return fetch('/cache/wmts/1.0.0/WMTSCapabilities.xml')
 }).then(function(response) {
   return response.text();
@@ -201,7 +203,7 @@ import('ol').then(_ => {
   map.getLayers().extend(layerGroups);
   // not always using this for now ...
   // eslint-disable-next-line no-unused-vars
-  function addCaveExtentsLayer(jsonfile) {
+  function addCaveExtentsLayer(title, jsonfile) {
   var VectorLayer;
   var VectorSource;
 
@@ -248,19 +250,20 @@ import('ol').then(_ => {
       var extents_2017_18 = new VectorLayer({
         source: extentsSource,
         style: styleFunction,
-        title: "Ice Cave Extents (2017-18)"
+        title: title,
       });
       map.addLayer(extents_2017_18);
       LayerSwitcher.renderPanel(map, document.getElementById('switcher'), {});
     })
   }
   
-  /*
-  if(!isMobile()) {
-    addCaveExtentsLayer('/data/IceCaveExtents.geojson')
+  if(!isMobile() && geojson) {
+    
+    for(var entry of geojson) {
+      addCaveExtentsLayer(entry.title, entry.source)
+    }
   }
-  */
-
+  
   function checkSize() {
     var small = map.getSize()[0] < 600;
     attribution.setCollapsible(small);
