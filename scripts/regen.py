@@ -3,6 +3,7 @@
 import glob
 from os import path
 from osgeo import ogr
+import subprocess
 
 basedir = '/var/www/is.icecaves.map/mapdata'
 tiledirs = glob.glob(basedir + '/*/')
@@ -222,5 +223,8 @@ grids:
 globals:  
 """)
 cachefile.close()
+
+print("🚛 running webpack ...")
+subprocess.call(['npx','webpack'])
 
 print("🦊 all done!")
