@@ -13,3 +13,7 @@ node_modules/
 dist/
 .nova/
 __pycache__/
+mapcache/mapcache.yaml
+mapfiles/
+data/
+maps/*.json
