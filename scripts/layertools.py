@@ -27,25 +27,6 @@ def readLayerDefs(tiledirs):
 	  layers.append([ tiledir, extent, shapefile ])
   return layers
 
-#for tiledir in tiledirs:
-#    shapes = glob.glob(tiledir + '*shp')
-#    if len(shapes) != 1:
-#        print("## skipping " + tiledir)
-#        continue
-#    shapefile = shapes[0]
-#
-#    driver = ogr.GetDriverByName("ESRI Shapefile")
-#    dataSource = driver.Open(shapefile, 0)
-#    layer = dataSource.GetLayer()
-#    spatialRef = layer.GetSpatialRef()
-#    extent = layer.GetExtent()
-#    authority = spatialRef.GetAuthorityCode(None)
-#
-#    if authority != '3857':
-#        print("## unexpected authority code: " + authority)
-#        print("## skipping " + tiledir)
-#        continue
-
 def writeCombinedMap(layers):
   print("🌐 writing combined.map ...")
   
