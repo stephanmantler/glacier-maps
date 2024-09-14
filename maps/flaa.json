@@ -6,6 +6,11 @@
         "layername": "flaa_20231125_relief",
         "title": "Fláajökull (south), 2023-11-25",
         "extent": [-1737226.795, 9432652.738, -1736634.481, 9433294.248]
+      },
+      {
+        "layername": "20240830_flaa_hillshade",
+        "title": "Fláajökull (east), 2024-08-30",
+        "extent": [-1734807.337, 9433612.899, -1731432, 9438076]
       }
     ],
     "Orthophotos" : [
@@ -18,6 +23,11 @@
         "layername": "flaa_20231125",
         "title": "Fláajökull (south), 2023-11-25",
         "extent": [-1737226.795, 9432652.613, -1736634.378, 9433294.248]
+      },
+      {
+        "layername": "20240830_flaa_ortho",
+        "title": "Fláajökull (east), 2024-08-30",
+        "extent": [-1734807.337, 9433612.899, -1731432, 9438076]
       }
     ]
   }

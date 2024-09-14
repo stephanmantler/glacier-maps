@@ -1,0 +1,19 @@
+{
+  "title": "West Breiðamerkurjökull",
+  "layers": {
+    "Orthophotos" : [
+      {
+        "layername": "20240826_SL_ortho",
+        "title": "2021-10-08",
+        "extent": [-1819234.148, 9374640.302, -1818928.339, 9374856.464]
+      }
+    ],
+    "Relief Maps" : [
+      {
+      "layername": "20240826_SL_hillshade",
+      "title": "2021-10-08",
+      "extent": [-1819234.148, 9374640.302, -1818928.339, 9374856.464]
+    }
+    ]    
+  }
+}

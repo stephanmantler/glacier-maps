@@ -1,7 +1,7 @@
 {
   "title": "Sapphire Ice Cave – Breiðamerkurjökull / Þröng",
   "layers": {
-    "Sapphire / Þröng - Relief" : [
+    "Relief Maps" : [
       {
         "layername": "throng_20201107_relief",
         "title": "Ortho, 2020-11-07",
@@ -9,7 +9,7 @@
       }
     ],
     
-    "Treasure Island - Orthophotos" : [
+    "Orthophotos" : [
       {
         "layername": "treasure_20171211_3857_tiles_jpeg",
         "title": "Ortho, 2017-12-11",
@@ -87,10 +87,7 @@
         "title": "Ortho, 2020-11-07",
         "extent": [-1810100, 9377300, -1806450, 9379055 ],
         "remarks": "Finally a new map! this is the first mapping run with my DJI Mavic Air 2. Due to software limitations, flown entirely manually with some consequences for the achievable accuracy. Final output resolution is approximately 12cm per pixel."
-      }
-    ],
-         
-    "Sapphire / Þröng" : [
+      },
       {
         "layername": "throng_20201107",
         "title": "Ortho, 2020-11-07",

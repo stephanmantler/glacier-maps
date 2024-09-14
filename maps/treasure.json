@@ -1,7 +1,7 @@
 {
   "title": "Treasure Island – Breiðamerkurjökull / Jökulsárlón",
   "layers": {
-    "Treasure Island - Relief Maps" : [
+    "Relief Maps" : [
       {
         "layername": "treasure_20190601_relief",
         "title": "Relief, 2019-06-01",
@@ -20,15 +20,23 @@
         "extent": [-1810100, 9377300, -1806450, 9379055 ]
       }, {
         "layername": "20210224_throng_hillshade",
-        "title":"Relief, 2020-11-07",
+        "title":"Relief, 2021-02-24",
         "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
+      }, {
+        "layername": "20220218_treasure_hillshade",
+        "title":"Relief, 2022-02-18",
+        "extent": [-1809285.652, 9377512.431, -1804685.361, 9383766.807]
+      }, {
+        "layername": "treasure_20240516_hillshade",
+        "title":"Relief, 2024-05-16",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
       }
     ],
-    "Treasure Island - Orthophotos" : [
+    "Orthophotos" : [
       {
         "layername": "treasure_20171211_3857_tiles_jpeg",
         "title": "Ortho, 2017-12-11",
-        "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
+          "extent": [-1809304.555, 9377281.594, -1806845.776, 9378852.344]
       }, {
         "layername": "treasure_20180228_3857_tiles_jpeg",
         "title": "Ortho, 2018-02-28",
@@ -102,6 +110,18 @@
         "title": "Ortho, 2020-11-07",
         "extent": [-1810100, 9377300, -1806450, 9379055 ],
         "remarks": "Finally a new map! this is the first mapping run with my DJI Mavic Air 2. Due to software limitations, flown entirely manually with some consequences for the achievable accuracy. Final output resolution is approximately 12cm per pixel."
+      }, {
+        "layername": "20211008_throng_ortho",
+        "title":"Ortho, 2021-10-08",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
+      }, {
+        "layername": "20220218_treasure_ortho",
+        "title":"Ortho, 2022-02-18",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
+      }, {
+        "layername": "treasure_20240516_ortho",
+        "title":"Ortho, 2024-05-16",
+        "extent": [-1810100, 9377300, -1806450, 9379055 ]
       }
     ]
   }
