@@ -8,16 +8,18 @@ from layertools import *
 def loadMapset(name):
   filename = path.join("maps", name+".json")
   if not path.exists(filename):
-    return {"title":"Untitled", "layers":{ "Orthophotos" : [], "Relief Maps": []}}
+    return {"title":"Untitled", "description":"", layers":{ "Orthophotos" : [], "Relief Maps": []}}
   with open(filename, mode="r", encoding="utf-8") as fd:
     meta = json.load(fd)
   return meta
+
   
 def saveMapset(name, mapset):
   filename = path.join("maps", name+".json")
   with open(filename, mode="w", encoding="utf-8") as fd:
     json.dump(mapset, fd)
-  
+
+
 def categoryForLayer(tiledir):
   if tiledir.endswith("_ortho"):
     return "Orthophotos"
@@ -26,6 +28,7 @@ def categoryForLayer(tiledir):
   if tiledir.endswith("_hillshade"):
     return "Relief Maps"
   raise ValueError(f"Cannot identify layer category for file name: {tiledir}")
+
 
 def addLayerToMapset(layer, mapsetname, title):
   tiledir = path.basename(path.normpath(layer[0]))
@@ -52,6 +55,7 @@ def addLayerToMapset(layer, mapsetname, title):
     "extent": [ extent[0],extent[2],extent[1],extent[3] ]
   })
   saveMapset(mapsetname, mapset)
+
 
 def mergeMapDefinitions(metafiles, layers):
   print("💾 loading metadata")
