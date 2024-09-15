@@ -8,6 +8,15 @@ import 'leaflet';
 import PanelLayers from 'leaflet-panel-layers';
 import 'leaflet-gpx';
 
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: '/node_modules/leaflet/dist/images/marker-icon-2x.png',
+  iconUrl: '/node_modules/leaflet/dist/images/marker-icon.png',
+  shadowUrl: '/node_modules/leaflet/dist/images/marker-shadow.png',
+});
+
+
 export function Builder(mapDef) {
 
 var resetZoom;
@@ -324,9 +333,9 @@ fetch(mapDef).then(function(data) {
         load_shapefile(entry.source).then(function(geojsonFeature) {
           console.log("adding geoJSON layer");
           var jsonReference = L.geoJSON(geojsonFeature, {
-              "color": "#ff7800",
-              "weight": 5,
-              "opacity": 0.65
+              color: "#ff7800",
+              weight: 5,
+              opacity: 0.65
           }).addTo(map);
 
           switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
