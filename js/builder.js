@@ -327,12 +327,11 @@ fetch(mapDef).then(function(data) {
   if(!isMobile() && overlays) {
 
     for(var entry of overlays) {
-      console.log("requesting overhang data...");
       if(entry.source.endsWith(".geojson")) {
-        var title = entry.title;
-        var options = entry.options;
+        let title = entry.title;
+        let options = entry.options;
         load_shapefile(entry.source).then(function(geojsonFeature) {
-          console.log("adding geoJSON layer");
+          console.log("adding geoJSON layer:" + title);
           var defaults = {
             color: "#ff7800",
             weight: 5,
@@ -347,7 +346,7 @@ fetch(mapDef).then(function(data) {
                 }
             }
           }
-
+          
           var jsonReference = L.geoJSON(geojsonFeature, { ...defaults, ...options, ...overrides }).addTo(map);
 
           switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
