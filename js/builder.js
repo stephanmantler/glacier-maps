@@ -1,17 +1,20 @@
 import '../css/site.css'
 import 'leaflet/dist/leaflet.css'
+import 'leaflet-panel-layers/dist/leaflet-panel-layers.min.css'
 
 console.log("registering Builder...")
 
-import L from 'leaflet';
+import 'leaflet';
+import PanelLayers from 'leaflet-panel-layers';
+import 'leaflet-gpx';
 
 export function Builder(mapDef) {
 
 var resetZoom;
 var map;
 
+var layers = {}
 var overlays = {}
-var geojson = {}
 
 //import('ol').then(_ => {
 //  ol = _;
@@ -19,8 +22,8 @@ var geojson = {}
 fetch(mapDef).then(function(data) {
   return(data.json());
 }).then(function(jsondata) {
-  overlays = jsondata.layers;
-  geojson = jsondata.overlays;
+  layers = jsondata.layers;
+  overlays = jsondata.overlays;
 //  return fetch('/cache/wmts/1.0.0/WMTSCapabilities.xml')
 //}).then(function(response) {
 //  return response.text();
@@ -88,7 +91,7 @@ fetch(mapDef).then(function(data) {
 
   var layerGroups = []
   var firstGroup = true
-  for(var og in overlays) {
+  for(var og in layers) {
     continue;
     var group = new Group({title: og, layers:[]})
 
@@ -96,8 +99,8 @@ fetch(mapDef).then(function(data) {
     optgroup.setAttribute("label", og)
     layerSelectList.appendChild(optgroup)
 
-    for(var k in overlays[og]) {
-      var ogl = overlays[og][k];
+    for(var k in layers[og]) {
+      var ogl = layers[og][k];
 //      var source = makeSource(ogl["layername"]);
 
 //      if(!source) {
@@ -142,25 +145,37 @@ fetch(mapDef).then(function(data) {
   map = L.map('map', { maxZoom: 21 });
   map.setView([65.5, -14], 7);
 
-  var baseLayer = new L.TileLayer('https://maps.stepman.is/cache/tms/1.0.0/LMI_Kort/webmercator/{z}/{x}/{y}.png', { tms: true, zoomOffset: -1, maxZoom: 21 });
-//  var baseLayer = new L.TileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png');
-//  var baseLayer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
-  baseLayer.addTo(map);
+  var baseLMI = new L.TileLayer('https://maps.stepman.is/cache/tms/1.0.0/LMI_Kort/webmercator/{z}/{x}/{y}.png', { tms: true, zoomOffset: -1, maxZoom: 21 }).addTo(map);
+  var baseOTM = new L.TileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png').addTo(map);
+  var baseOSM = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-  var something = new L.TileLayer('https://maps.stepman.is/cache/tms/1.0.0/20240826_SL_ortho/webmercator/{z}/{x}/{y}.png', { tms: true, zoomOffset: -1, maxZoom: 21 });
-  something.addTo(map);
+  var switcher = new PanelLayers([
+    { active: true,
+      name: "LMÍ",
+      layer: baseLMI 
+    },
+    { name: "OpenTopoMap",
+      layer: baseOTM
+    },
+    { name: "OpenStreetMap",
+      layer: baseOSM 
+    }
+  ], [], { collapsibleGroups:true }).addTo(map);
 
-  var jsonReference = L.geoJSON([], {
-        "color": "#ff7800",
-        "weight": 5,
-        "opacity": 0.65
-    }).addTo(map);
-  console.log("requesting overhang data...");
-  load_shapefile("/data/overlays/20240826_Overhangs_4326.geojson").then(function(geojsonFeature) {
-    console.log("adding geoJSON shape");
-    jsonReference.addData(geojsonFeature);
-    map.fitBounds(jsonReference.getBounds())
-  })
+  for(var og in layers) {
+//      var group = new Group({title: og, layers:[]})
+      
+//      var optgroup = document.createElement("optgroup")
+//      optgroup.setAttribute("label", og)
+//      layerSelectList.appendChild(optgroup)
+      
+      for(var k in layers[og]) {
+        var ogl = layers[og][k];
+        var layer = new L.TileLayer(`https://maps.stepman.is/cache/tms/1.0.0/${ogl.layername}/webmercator/{z}/{x}/{y}.png`, { tms: true, zoomOffset: -1, maxZoom: 21 });
+        switcher.addOverlay({name: ogl.title, layer: layer}, null, og);
+    }
+  }
+
 
   L.control.scale().addTo(map);
   /*, {
@@ -300,10 +315,41 @@ fetch(mapDef).then(function(data) {
   }
   */
 
-  if(!isMobile() && geojson) {
+  if(!isMobile() && overlays) {
 
-    for(var entry of geojson) {
-//      addCaveExtentsLayer(entry.title, entry.source)
+    for(var entry of overlays) {
+      console.log("requesting overhang data...");
+      if(entry.source.endsWith(".geojson")) {
+        var title = entry.title;
+        load_shapefile(entry.source).then(function(geojsonFeature) {
+          console.log("adding geoJSON layer");
+          var jsonReference = L.geoJSON(geojsonFeature, {
+              "color": "#ff7800",
+              "weight": 5,
+              "opacity": 0.65
+          }).addTo(map);
+
+          switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
+        })
+        continue;
+      }
+      if (entry.source.endsWith(".gpx")) {
+        console.log("adding GPX layer")
+        
+        var options = {
+          async: true,
+          polyline_options: { color: 'black' },
+        };
+        
+        var gpx = new L.GPX(entry.source, options).on('loaded', (e) => {
+          map.fitBounds(e.target.getBounds());
+        }).addTo(map);
+        switcher.addOverlay({name: entry.title, layer: gpx}, null, "Vector Overlays");         
+        
+        continue;
+      }
+
+      console.warn("Cannot identify overlay layer type for "+entry.source)
     }
   }
 
