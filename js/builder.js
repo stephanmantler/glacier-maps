@@ -338,7 +338,17 @@ fetch(mapDef).then(function(data) {
             weight: 5,
             opacity: 0.65
           }
-          var jsonReference = L.geoJSON(geojsonFeature, { ...defaults, ...options }).addTo(map);
+                  
+          var overrides = {
+            onEachFeature: function(feature, layer) {
+                // does this feature have a property named popupContent?
+                if (feature.properties && feature.properties.label) {
+                    layer.bindPopup(feature.properties.label);
+                }
+            }
+          }
+
+          var jsonReference = L.geoJSON(geojsonFeature, { ...defaults, ...options, ...overrides }).addTo(map);
 
           switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
         })
@@ -348,11 +358,14 @@ fetch(mapDef).then(function(data) {
         console.log("adding GPX layer")
         
         var defaults = {
-          async: true,
           polyline_options: { color: 'black' },
         };
         
-        var gpx = new L.GPX(entry.source, { ...defaults, ...entry.options }).on('loaded', (e) => {
+        var overrides = {
+          async: true
+        }
+        
+        var gpx = new L.GPX(entry.source, { ...defaults, ...entry.options, ...overrides }).on('loaded', (e) => {
           map.fitBounds(e.target.getBounds());
         }).addTo(map);
         switcher.addOverlay({name: entry.title, layer: gpx}, null, "Vector Overlays");         
