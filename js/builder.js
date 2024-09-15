@@ -330,13 +330,15 @@ fetch(mapDef).then(function(data) {
       console.log("requesting overhang data...");
       if(entry.source.endsWith(".geojson")) {
         var title = entry.title;
+        var options = entry.options;
         load_shapefile(entry.source).then(function(geojsonFeature) {
           console.log("adding geoJSON layer");
-          var jsonReference = L.geoJSON(geojsonFeature, {
-              color: "#ff7800",
-              weight: 5,
-              opacity: 0.65
-          }).addTo(map);
+          var defaults = {
+            color: "#ff7800",
+            weight: 5,
+            opacity: 0.65
+          }
+          var jsonReference = L.geoJSON(geojsonFeature, { ...defaults, ...options }).addTo(map);
 
           switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
         })
@@ -345,12 +347,12 @@ fetch(mapDef).then(function(data) {
       if (entry.source.endsWith(".gpx")) {
         console.log("adding GPX layer")
         
-        var options = {
+        var defaults = {
           async: true,
           polyline_options: { color: 'black' },
         };
         
-        var gpx = new L.GPX(entry.source, options).on('loaded', (e) => {
+        var gpx = new L.GPX(entry.source, { ...defaults, ...entry.options }).on('loaded', (e) => {
           map.fitBounds(e.target.getBounds());
         }).addTo(map);
         switcher.addOverlay({name: entry.title, layer: gpx}, null, "Vector Overlays");         
