@@ -1,12 +1,17 @@
 import '../css/site.css'
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-panel-layers/dist/leaflet-panel-layers.min.css'
-
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
+//import 'leaflet.awesome-markers/dist/leaflet.awesome-markers.css'
+import 'leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css'
 console.log("registering Builder...")
 
+//import 'bootstrap-icons'
 import 'leaflet';
 import PanelLayers from 'leaflet-panel-layers';
 import 'leaflet-gpx';
+//import 'leaflet.awesome-markers';
+import 'leaflet-extra-markers'
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -161,23 +166,23 @@ fetch(mapDef).then(function(data) {
   var switcher = new PanelLayers([
     { active: true,
       name: "LMÍ",
-      layer: baseLMI 
+      layer: baseLMI
     },
     { name: "OpenTopoMap",
       layer: baseOTM
     },
     { name: "OpenStreetMap",
-      layer: baseOSM 
+      layer: baseOSM
     }
   ], [], { collapsibleGroups:true }).addTo(map);
 
   for(var og in layers) {
 //      var group = new Group({title: og, layers:[]})
-      
+
 //      var optgroup = document.createElement("optgroup")
 //      optgroup.setAttribute("label", og)
 //      layerSelectList.appendChild(optgroup)
-      
+
       for(var k in layers[og]) {
         var ogl = layers[og][k];
         var layer = new L.TileLayer(`https://maps.stepman.is/cache/tms/1.0.0/${ogl.layername}/webmercator/{z}/{x}/{y}.png`, { tms: true, zoomOffset: -1, maxZoom: 21 });
@@ -337,7 +342,7 @@ fetch(mapDef).then(function(data) {
             weight: 5,
             opacity: 0.65
           }
-                  
+
           var overrides = {
             onEachFeature: function(feature, layer) {
                 // does this feature have a property named popupContent?
@@ -346,29 +351,50 @@ fetch(mapDef).then(function(data) {
                 }
             }
           }
-          
+
           var jsonReference = L.geoJSON(geojsonFeature, { ...defaults, ...options, ...overrides }).addTo(map);
 
-          switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");         
+          switcher.addOverlay({name: title, layer: jsonReference}, null, "Vector Overlays");
         })
         continue;
       }
       if (entry.source.endsWith(".gpx")) {
         console.log("adding GPX layer")
-        
-        var defaults = {
+/*
+        let redMarker = new L.ExtraMarkers.Icon({
+          icon: 'book',
+          shape: 'square',
+          markerColor: 'yellow',
+          prefix: 'bi',
+        });
+*/
+        let defaults = {
+          markers: {
+            wptIcons: {
+              '': new L.ExtraMarkers.Icon({
+              icon: 'bi-exclamation-triangle-fill',
+              shape: 'square',
+              markerColor: 'yellow',
+              prefix: 'bi',
+              })
+
+            }
+          },
+          gpx_options: {
+            parseElements: ['track', 'waypoint'],
+          },
           polyline_options: { color: 'black' },
         };
-        
-        var overrides = {
+
+        let overrides = {
           async: true
         }
-        
+
         var gpx = new L.GPX(entry.source, { ...defaults, ...entry.options, ...overrides }).on('loaded', (e) => {
           map.fitBounds(e.target.getBounds());
         }).addTo(map);
-        switcher.addOverlay({name: entry.title, layer: gpx}, null, "Vector Overlays");         
-        
+        switcher.addOverlay({name: entry.title, layer: gpx}, null, "Vector Overlays");
+
         continue;
       }
 
