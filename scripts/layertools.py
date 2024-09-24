@@ -79,6 +79,43 @@ def writeCombinedMap(layers):
   mapfile.write("END #MAP\n")
   mapfile.close()
 
+def writeSeedConfig(layers):
+  print("🌱 writing seed config ...")
+  seedfile = open("/var/www/is.icecaves.map/mapcache/seed.yaml", "w")
+
+  layerlist = []
+
+  for layer in layers:
+    tiledir = layer[0]
+    extent = layer[1]
+    shapefile = layer[2]
+    layername = path.basename(path.normpath(tiledir))
+    layerlist.append(layername+"_cache")
+
+  seedfile.write("""
+seeds:
+  ALL:
+    caches: %s
+    levels:
+      to: 15
+    coverages: [iceland]
+cleanups:
+  ALL:
+    caches: %s
+    remove_before:
+      days: 16
+    levels:
+      from: 16
+
+coverages:
+  iceland:
+      bbox: [-2785976.8069, 9167551.4244, -1462698.9733, 10119039.5525]
+      srs: 'EPSG:3857'
+
+""" % (layerlist, layerlist))
+  seedfile.close()
+
+def writeCacheConfig(layers):
   print("🚛 writing cache config ...")
 
   cachefile = open("/var/www/is.icecaves.map/mapcache/mapcache.yaml", "w")
