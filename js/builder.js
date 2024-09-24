@@ -348,6 +348,8 @@ fetch(mapDef).then(function(data) {
                 // does this feature have a property named popupContent?
                 if (feature.properties && feature.properties.label) {
                     layer.bindPopup(feature.properties.label);
+                } else if (feature.properties && feature.properties.Remarks) {
+                    layer.bindPopup(feature.properties.Remarks);
                 }
             }
           }
