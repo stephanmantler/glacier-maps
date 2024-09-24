@@ -13,7 +13,7 @@ def loadMapset(name):
     meta = json.load(fd)
   return meta
 
-  
+
 def saveMapset(name, mapset):
   filename = path.join("maps", name+".json")
   with open(filename, mode="w", encoding="utf-8") as fd:
@@ -33,9 +33,9 @@ def categoryForLayer(tiledir):
 def addLayerToMapset(layer, mapsetname, meta):
   tiledir = path.basename(path.normpath(layer[0]))
   extent = layer[1]
-    
+
   mapset = loadMapset(mapsetname)
-  
+
   category = categoryForLayer(tiledir)
   if category is None:
     print("     🫥 skipping unkown category for %s" % tiledir)
@@ -46,11 +46,11 @@ def addLayerToMapset(layer, mapsetname, meta):
     if layerdef["layername"] == tiledir:
       print("     ✅  already exists in %s" % mapsetname)
       return
-      
+
   description = ""
   if "description" in meta:
-    description = meta["description"]      
-  
+    description = meta["description"]
+
   # need to add and save mapset
   print("     🔰  adding to %s" % mapsetname)
   mapset["layers"][category].append({
@@ -91,6 +91,8 @@ metafiles.sort()
 
 layers = readLayerDefs(tiledirs)
 writeCombinedMap(layers)
+writeCacheConfig(layers)
+writeSeedConfig(layers)
 mergeMapDefinitions(metafiles, layers)
 runWebPack()
 print("🦊 all done!")
